@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="0 0 170.14757 139.21165"
+   stroke-miterlimit="10"
+   id="svg55"
+   sodipodi:docname="Gamespawn Logo.svg"
+   width="170.14757"
+   height="139.21165"
+   style="fill:none;stroke:none;stroke-linecap:square;stroke-miterlimit:10"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata
+     id="metadata61">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs59" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     id="namedview57"
+     showgrid="false"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:zoom="3.6203867"
+     inkscape:cx="85.073785"
+     inkscape:cy="57.452426"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg55"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-page="true"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1" />
+  <clipPath
+     id="g63b0badb4f_0_94.0">
+    <path
+       d="M 0,0 H 960 V 540 H 0 Z"
+       id="path2"
+       inkscape:connector-curvature="0"
+       style="clip-rule:nonzero" />
+  </clipPath>
+  <path
+     style="fill:#20beed;fill-rule:evenodd;stroke-width:0.951831"
+     inkscape:connector-curvature="0"
+     id="path15"
+     d="M 78.620605,137.1895 V 39.297604 L 50.015924,55.471337 v 15.606128 l 15.293475,-7.66148 V 85.264543 L 20.562058,60.010953 V 54.336118 L 78.054067,20.854702 V 5.2485933 L 4.4194174,48.37748 V 67.388621 L 65.026121,102.28907 v 27.52339 z" />
+  <path
+     style="fill:#20beed;fill-rule:evenodd;stroke-width:0.951831"
+     inkscape:connector-curvature="0"
+     id="path17"
+     d="M 86.267017,137.1895 V 39.297604 L 114.87106,55.471337 V 71.077465 L 99.860865,63.415985 V 85.264543 L 144.32492,60.010953 V 54.336118 L 86.833555,20.854702 V 5.2485933 L 160.46756,48.37748 V 67.388621 L 99.860865,102.28907 v 27.52339 z" />
+  <path
+     style="fill:#20beed;fill-rule:evenodd;stroke-width:0.951831"
+     inkscape:connector-curvature="0"
+     id="path19"
+     d="M 91.364622,4.6809792 118.55294,20.57091 h 22.93992 V 4.6809792 Z" />
+  <path
+     style="fill:#18a7d6;fill-rule:evenodd;stroke-width:0.951831"
+     inkscape:connector-curvature="0"
+     id="path21"
+     d="M 78.054058,5.2485933 16.31425,41.284249 30.191372,48.661282 78.054058,20.854712 Z M 78.620595,39.297604 50.015914,55.471337 v 3.688834 l 11.611573,5.958637 3.681902,-1.702823 v 3.688834 l 13.311206,6.810053 z m 7.646422,0 v 38.873073 l 13.593848,7.093866 V 63.415985 l 15.010195,7.66148 V 55.471337 Z M 86.833555,5.2485933 V 20.854712 l 57.491365,33.481406 v 5.674835 L 99.860865,85.264552 115.43759,93.492993 160.46756,67.388621 V 48.37748 Z" />
+  <path
+     style="fill:#28d1ff;fill-rule:evenodd;stroke-width:0.951831"
+     inkscape:connector-curvature="0"
+     id="path23"
+     d="M 91.364622,4.6809792 118.55294,20.57091 h 22.93992 V 4.6809792 Z" />
+  <path
+     style="fill:#0b95be;fill-rule:evenodd;stroke-width:0.951831"
+     inkscape:connector-curvature="0"
+     id="path25"
+     d="M 91.364622,4.6809792 118.55294,20.57091 h 22.93992 V 4.6809792 Z M 78.054058,5.2485933 35.855524,29.933945 49.732645,37.311613 78.054058,20.854712 Z m 0.566537,34.0490107 -11.894852,6.810063 11.894852,6.24244 z m 7.646413,0 v 17.308961 l 13.593857,6.80942 15.010185,7.66148 V 55.471337 Z M 86.833555,5.2485933 V 20.854712 l 57.491355,33.481406 v 5.674835 l -24.63952,13.903919 15.29348,8.228451 25.48868,-14.754702 V 48.37748 L 86.833545,5.2485933 Z" />
+  <rect
+     style="opacity:0;fill:#000000;stroke-width:0.951831"
+     id="rect234"
+     width="163.84247"
+     height="133.13495"
+     x="5.4764657"
+     y="4.4194174"
+     ry="0" />
+  <rect
+     style="opacity:0;fill:#000000;stroke-width:0.951831"
+     id="rect236"
+     width="23.519323"
+     height="23.540562"
+     x="55.421989"
+     y="28.22154" />
+</svg>

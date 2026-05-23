@@ -1,0 +1,15 @@
+.team-container {
+
+    padding: 1rem;
+
+    background-color: hsl(1, 0%, 85%);
+
+}
+
+.team-container * .card * {
+
+    line-height: 1.25rem;
+
+    margin: 0.25rem 0;
+
+}

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://radiantsun.net/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Required meta tags -->
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- Favicon and title -->
+        <title>Radiant Sun</title>
+        <link rel="icon" type="image/x-icon" href="https://radiantsun.net/images/favicon.ico">
+    
+        <!-- Bootstrap CSS -->
+        <link href="./Radiant Sun_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        
+        <!-- Google Fonts for Poppins -->
+        <link rel="preconnect" href="https://fonts.googleapis.com/">
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link href="./Radiant Sun_files/css2" rel="stylesheet">
+    
+        <!-- Awesomefont Free Icons -->
+        <link rel="stylesheet" href="./Radiant Sun_files/font-awesome.min.css">
+        
+        <!-- Local css stylesheet -->
+        <link href="./Radiant Sun_files/main.css" rel="stylesheet">
+
+        <!-- JavaScript -->
+         <script src="./Radiant Sun_files/scroll.js"></script>
+         <script src="./Radiant Sun_files/fullscreen.js"></script>
+         <script src="./Radiant Sun_files/colClass.js"></script>
+      </head>
+
+  <body onload="colSize()">
+
+    <!-- Navbar -->
+    <div>
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav">
+
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-label="Expand Navigation" style="padding-right:10px;">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse bg-dark" style="height:75px;">
+            
+                    <div class="container-fluid">
+                        <div class="row gy-3">
+
+                            <div class="col-6">
+                                <div class="container">
+                                    <a class="navbar-brand" href="https://radiantsun.net/index.html" style="padding-left:20px">
+                                        <img src="./Radiant Sun_files/SilverSunValkyrie.png" style="width:40px;">
+                                    Radiant Sun
+                                    </a>
+                                </div>
+                                
+                            </div>
+
+                            <div class="col-6">
+                                <div class="container">
+
+                                    <ul class="navbar-nav gy-3">
+                                        <li class="nav-item">
+                                            <a href="./Radiant Sun_files/Gamespawn Logo.svg" type="button" class="btn btn-outline-light" target="_blank" download="">
+                                                <img src="./Radiant Sun_files/Windows_logo_-_1992.svg" style="height:30px"> Download Windows Version</a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="./Radiant Sun_files/Gamespawn Logo.svg" type="button" class="btn btn-outline-light" target="_blank" download="">
+                                                <img src="./Radiant Sun_files/Apple_Computer_Logo_rainbow.svg" style="height:30px"> Download Mac Version</a>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                    
+            </nav>
+        </div>
+        
+    </div>
+    
+
+    <!-- Content of site -->
+
+    <!-- Game Window -->
+    <!-- <div id="gameBackground" class="desktop"> -->
+              
+
+        <!--
+        <img src="images/ds_background.png" alt="DS background" id="gameBackground" />
+        <div class="container">
+            
+            <iframe 
+                id="frame"
+                src="demo/index.html" title="Radiant Sun" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+            -->
+
+            <!-- <a href="#" id="fullscreen" class="btn btn-secondary">Fullscreen</a> -->
+            
+        
+    <!-- </div> -->
+    
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center" style="font-size:5rem;">Radiant Sun</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col"></div>
+
+                <div class="col-md-8">
+
+                    <div id="carouselControl" class="carousel slide" data-bs-ride="carousel">
+
+                        <!-- Indicators (bootstrap suggests <ol> but w3schools suggests <button>) -->
+                        <div class="carousel-indicators">
+                            <button data-bs-target="#carouselControl" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                            <button data-bs-target="#carouselControl" data-bs-slide-to="1" class=""></button>
+                            <button data-bs-target="#carouselControl" data-bs-slide-to="2" class=""></button>
+                        </div>
+
+                        <!-- Slides of the carousel-->
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="./Radiant Sun_files/screenshot1.PNG" alt="Home base of the game">
+                                
+                            </div>
+
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="./Radiant Sun_files/screenshot2.PNG" alt="Traversing the world with a party">
+                                
+                            </div>
+
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="./Radiant Sun_files/screenshot3.PNG" alt="Battle against dark wing enemies">
+                                
+                            </div>
+
+                        </div>
+
+                        <!-- Controls (w3school suggests <button> but bootstrap 5 suggests <a>) -->
+                        <button class="carousel-control-prev rounded" type="button" data-bs-target="#carouselControl" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </button>
+                        <button class="carousel-control-next rounded" type="button" data-bs-target="#carouselControl" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </button>
+                    </div>
+                
+                </div>
+
+
+            <div class="col"></div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row gy-3">
+
+            <div class="col"></div>
+
+            <div class="col-8">
+
+                <h2>Game Summary</h2>
+                <p>
+                    In the distant future, humans are born with magical abilities. The city of New Gem heroes called "Knights" protect people from those who wish to abuse 
+                    their powers. These people are known as "Outlaws."
+                    In New Gem City, a young man named Adam hopes to one day be a Knight. Unfortunately, he was born powerless. Not deterred by fate Adam 
+                    creates a magical suit of armor to protect the city from the local gang called Dark Wings. Along the way, he will make new friends and learn what 
+                    being a hero means.            
+                </p>
+            </div>
+            
+            <div class="col"></div>
+
+        </div>
+    </div>
+
+    <div class="container bg-dark" id="game-demos">
+        <h2 style="color: white">Play the game in the browser on desktop</h2>
+        <p style="color: white">The game button below will launch the game in your browser in a new tab.</p>
+        <a href="https://radiantsun.net/demo/index.html" class="btn btn-primary" target="_blank" rel="noreferrer">Desktop Game Demo</a>
+
+        <p style="color: white">Not on desktop? Play the game in your phone or tablet browser instead.</p>
+        <a href="https://radiantsun.net/demomobile/silver_sun/www/index.html" class="btn btn-secondary" target="_blank" rel="noreferrer">Mobile Game Demo</a>
+    </div>  
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header">Saving the Game</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Use the game menu to save the game</h3>
+                        <p class="card-text">
+                            Save files are stored in the browser's save data. The game save will not leave you device and will not be sent to the internet.
+                            <br>
+                            To resume the game, open the game in the same browser on the same device.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h1 class="text-center">How to Play</h1>
+                <div class="row">
+                    <div class="col">
+                        <p>
+                            Mouse = Click on any menu item you'd like :)
+
+                            <br>
+
+                            Arrow Keys = Navigate menu and move character
+
+                            <br>
+
+                            Enter = Confirm
+
+                            <br>
+
+                            Spacebar = Jump 
+                        </p>
+                    </div>
+
+                    <div class="col">
+                        <p>
+                            ESC or X = Open menu
+
+                            <br>
+
+                            ESC = Back
+
+                            <br>
+
+                            F = Check enemy unit data
+
+                            <br>
+
+                            I = Show game objective hint
+
+                            <br>
+
+                            Shift + Arrow keys = Sprint
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="container flex">
+
+        <h1>Created in association with</h1>
+
+        <div id="gallery-1" class="row g-3 row-cols-2">
+            <div class="col">
+                <div class="card border-dark" style="bottom:0px; right:10px;">
+                    <div class="card-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="./Radiant Sun_files/Gamespawn Logo.svg" style="width:80px;" class="d-inline">
+                                </div>
+                                <div class="col">
+                                    <h3 class="d-inline">Gamespawn</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <p>
+                            Game development club at the University of California, Riverside.
+                        </p>
+
+                        <a href="https://gamespawn.github.io/index.html" type="button" class="btn btn-outline-dark" target="_blank">
+                            Organiztion Website
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-dark" style="bottom:0px; right:10px;">
+                    <div class="card-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="./Radiant Sun_files/UC_Riverside_seal.svg" style="width:80px;" class="d-inline">
+                                </div>
+
+                                <div class="col">
+                                    <h3 class="d-inline">University of California, <br> Riverside</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-dark" style="bottom:0px; right:10px;">
+                    <div class="card-header">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4">
+                                    <img src="./Radiant Sun_files/California_State_University,_Fullerton_seal.svg" style="width:80px;" class="d-inline">
+                                </div>
+
+                                <div class="col">
+                                    <h3 class="d-inline">California State University, <br> Fullerton.</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+
+    <div class="container">
+        <h1>Our Team</h1>
+
+        <div id="gallery-2" class="row row-cols-2 g-3">
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Angel</h3>
+                        </div>
+
+                        <p class="card-text">Producer, Writer, &amp; Director</p>
+                        <p class="card-text">
+                            Angel is the producer of the Radiant Sun video game project, beginning in 2021. 
+                            Currently, he is writing film scripts at a professional level.
+                        </p>
+                        <a href="https://angelmayorga.weebly.com/" target="_blank" class="card-link btn btn-outline-dark">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Donovan</h3>
+                        </div>
+
+                        <p class="card-text">Writer, Editor, &amp; Web Developer</p>
+                        <p class="card-text">
+                            Don joined the team back in 2021 as a developmental editor for the script but also brought his experience in web development to 
+                            design the website you see today :) !
+                        </p>
+                        <a href="https://donovanfrazier.com/" target="_blank" class="card-link btn btn-outline-dark">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Jesse</h3>
+                        </div>
+
+                        <p class="card-text">Musician</p>
+                        <p class="card-text">Hi! Just a guy who wanted to add a little bit of value to a passion project.</p>
+                        <a href="mailto:jcazu001@ucr.edu" target="_blank" class="card-link btn btn-outline-dark">Email</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Starri</h3>
+                        </div>
+
+                        <p class="card-text">Artist</p>
+                        <p class="card-text">I'm Starri! I like drawing and designing characters and I also play way too many gacha games!</p>
+                        <a href="https://twitter.com/4kstarri" target="_blank" class="card-link btn btn-outline-dark"><i class="fa fa-twitter"></i> @4kstarri</a>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Edwin</h3>
+                        </div>
+
+                        <p class="card-text">Programmer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Aramis</h3>
+                        </div>
+
+                        <p class="card-text">Programmer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Daphne F.</h3>
+                        </div>
+
+                        <p class="card-text">Programmmer</p>
+                        <p class="card-text">
+                            Daphne enjoys music, gaming, and her cats. When she’s not working in the entertainment industry or doing voice over and singing work, 
+                            she enjoys archery, karaoke, podcasting, and window shopping for cat trees. 
+                        </p>
+                        <p class="card-text">
+                            Thank you to Angel and Team for being kind, patient, and loving the craft of storytelling and video game development. It was a pleasure. 
+                        </p>
+                        <a href="https://www.deefayy.com/" target="_blank" class="card-link btn btn-outline-dark">Portfolio</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Peter</h3>
+                        </div>
+
+                        <p class="card-text">Programmer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>John Henry Ronk</h3>
+                        </div>
+
+                        <p class="card-text">Play Tester</p>
+                        <p class="card-text">
+                            John Henry Ronk, graduated class of 2022 at University of California Riverside with a bachelor's degree in creative writing. 
+                            Has an interest in fiction, particularly speculative fiction, as well as culture, language, programming, and art.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card border-dark">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Braxton</h3>
+                        </div>
+
+                        <p class="card-text">Beta Tester</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <a href="https://radiantsun.net/#" class="btn btn-secondary" id="back-to-top">Back to Top</a>
+    
+        
+        
+    <footer class="py-3 my-4 bg-dark text-white">
+        <div id="footer-container" class="container">
+            <p class="text-center">
+                © 2023 Radiant Sun Devs
+            </p>
+        </div>
+    </footer>
+        
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="./Radiant Sun_files/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  
+</body></html>

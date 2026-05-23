@@ -1,0 +1,210 @@
+/*
+    1. Global
+    2. Typography
+    3. Structure
+    4. Components
+    5. Responsive Design
+*/
+
+/* 1. Global
+======================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    overflow: auto;
+}
+
+/* 2. Typography
+======================================================= */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+h1 {
+    font-family: 'Comic Sans', sans-serif;
+}
+
+.gray-link {
+    color:black;
+}
+.gray-link:hover {
+    color:gray;
+}
+
+/* 3. Structure
+======================================================= */
+
+nav {
+    background-color: #850805;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#nav {
+    height: 5rem;
+    margin: 0;
+}
+
+.nav-link {
+    color:black;
+}
+.nav-link:hover {
+    color:gray;
+}
+
+
+.navbar-nav > li {
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card {
+    background-color: hsl(30, 10%, 95%);
+}
+
+#footer-container {
+    margin: 0;
+}
+
+#game-demos {
+    border: 0.5rem solid black;
+    margin-top: 5rem;
+}
+
+/* 4. Components
+======================================================= */
+
+#gameBackground {
+    height: 92vh;
+    width: 100vw;
+
+/*    background-image: url('../images/ds_background.png'); */
+    position: relative;
+}
+
+#frame {
+    top: 14vh; 
+    left: 16.5vw; 
+    position: absolute;
+
+    width: 66.8vw;
+    height: 82vh;
+
+    /*
+    width: 1280px;
+    height: 720px;
+    */
+}
+
+#back-to-top {
+    position: fixed;
+    top: 90%;
+    left: 90%;
+}
+
+/* 5. Responsive Design
+======================================================= */
+
+@media only screen and (max-width: 720) {
+    .desktop {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #gameBackground {
+        height: 480px;
+    }
+}
+
+
+
+
+
+
+/*
+.dark-mode {
+    background-color:black;
+    color:white;
+
+    .mode-button {
+        background-color:white;
+        color:black;
+    }
+
+    .card {
+        background-color:black;
+    }
+
+    .border-dark {
+        border:2px solid white;
+        outline-style:solid;
+        outline-color:white;
+    }
+
+    .btn-outline-secondary {
+        color:white;
+        border:1px solid #9DA5AF;
+        outline-style:solid;
+        outline-color:#9DA5AF;
+    }
+
+    .btn-outline-dark {
+        color:white;
+        border:1px solid #9DA5AF;
+        outline-style:solid;
+        outline-color:#9DA5AF;
+    }
+
+    .btn-dark {
+        color:white;
+        border:1px solid #9DA5AF;
+        outline-style:solid;
+        outline-color:#9DA5AF;
+        background-color:black;
+    }
+
+    .btn-outline-light:hover {
+        color:black;
+    }
+
+    .btn.active {
+        color:black;
+    }
+
+    .gray-link {
+        color:white;
+    }
+    .gray-link:hover {
+        color:gray;
+    }
+
+    .nav-link {
+        color:white;
+    }
+    .nav-link:hover {
+        color:gray;
+    }
+}
+.dark-mode {
+    animation-name:text-fade;
+    animation-duration:0.5s;
+}
+*/
+
+

@@ -1,0 +1,17 @@
+.carousel {
+
+    width: 80vw;
+
+    margin: 1rem 10vw;
+
+    background-color: hsl(1, 0%, 85%);
+
+    border-radius: 0.5rem;
+
+}
+
+.carousel-image {
+
+    width: 100%;
+
+}

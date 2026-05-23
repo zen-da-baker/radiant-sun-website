@@ -1,0 +1,33 @@
+.status-banner {
+
+    color: white;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100vh;
+
+    padding: 0.5rem;
+
+}
+
+.hidden {
+
+    visibility: hidden;
+
+}
+
+.success {
+
+    background-color: hsl( 150, 50%, 25% );
+
+}
+
+.failure {
+
+    background-color: hsl( 5, 50%, 25% );
+
+}

@@ -1,0 +1,19 @@
+@font-face {
+
+    font-family: "pixel";
+
+    src:
+        local("pixel"),
+        url("../public/fonts/m5x7.ttf");
+
+}
+
+#bytesized {
+
+    font-family: "pixel";
+
+    font-size: 2rem;
+
+    color: hsl(30, 90%, 70%);
+
+}
