@@ -1,6 +1,5 @@
 // Import components
 import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
 
 import { Header } from "@/page-components/Header";
 import { Footer } from "@/page-components/Footer";
@@ -21,8 +20,6 @@ export default function RootLayout( { children } : Readonly < { children: React.
   
   return (
     <html lang="en">
-
-      <Analytics />
 
       <body>
 
