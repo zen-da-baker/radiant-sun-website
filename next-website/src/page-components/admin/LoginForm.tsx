@@ -51,9 +51,9 @@ export function LoginForm(
     }
 
     return (
-        <div>
+        <div className="form">
 
-            <h2>Login</h2>
+            <h2>Access Admin Panel</h2>
 
             <label>
                 Username
