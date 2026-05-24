@@ -2,10 +2,12 @@
 import { redirect } from "next/navigation";
 
 // Import components
-import { LoginForm } from "@/page-components/admin/LoginForm"
+import { LoginForm } from "@/page-components/admin/LoginForm";
+import { VerifyAccess } from "@/page-components/admin/VerifyAccess";
 
 // Import helper functions
 import { escapeStrings } from "@/helpers/escapeStrings";
+import { verifyPageAccess } from "@/helpers/login-server-functions/verifyPageAccess";
 
 // Import models
 import { Token } from "../../models/Token";
@@ -32,6 +34,8 @@ export default function Admin() {
 
     return (
         <main>
+
+            <VerifyAccess verifyPageAccess={ verifyPageAccess } />
 
             <h1>Admin</h1>
 
