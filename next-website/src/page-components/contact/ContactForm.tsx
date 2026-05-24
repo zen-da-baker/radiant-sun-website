@@ -9,10 +9,10 @@
 import { useState } from "react";
 
 // Import components
-import { StatusBanner } from "./StatusBanner";
+import { StatusBanner } from "../StatusBanner";
 
 // Import styles
-import "../../styles/form.css";
+import "../../../styles/form.css";
 
 // The contact form would receive a function from the server for how to handle submitting data
 export function ContactForm( { formAction }: { formAction: any } ) {

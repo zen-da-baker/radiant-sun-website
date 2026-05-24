@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
 // Import components
-import { ContactForm } from "@/page-components/ContactForm";
+import { ContactForm } from "@/page-components/contact/ContactForm";
 
 // Import helper strings
 import { escapeStrings } from "@/helpers/escapeStrings";
@@ -17,8 +17,6 @@ export default function ContactPage() {
         // The server function needs to be explicitly described as being on the server side
         "use server"
 
-        console.log("Server Function Executed");
-
         name = escapeStrings( name );
 
         email = escapeStrings( email );
@@ -27,10 +25,12 @@ export default function ContactPage() {
 
         body = escapeStrings( body );
 
+        let messageRead = false;
+
         let submittedFrom = "Radiant Sun";
 
         const message = {
-            name, email, subject, body, submittedFrom
+            name, email, subject, body, submittedFrom, messageRead
         }
 
         const databaseURI = process.env.databaseURI;
