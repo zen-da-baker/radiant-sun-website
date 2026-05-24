@@ -28,7 +28,7 @@ export default async function Admin({
 
     const verified = await verifyPageAccess( credentials.username, credentials.tokenId );
 
-    if ( !verified ) {
+    if ( !verified || typeof credentials.username !== "string" ) {
 
         return (
             <main>
@@ -44,12 +44,30 @@ export default async function Admin({
 
     }
 
+    const username = escapeStrings( credentials.username );
+
     return (
         <main>
 
-            { /* <VerifyAccess verifyPageAccess={ verifyPageAccess } /> */ }
+            <h1>Welcome to the Admin panel { credentials.username }</h1>
 
-            <h1>Admin</h1>
+            <Link href={
+                {
+                    pathname: "/admin/messages",
+                    query: credentials
+                }
+            }>
+                View Messages
+            </Link>
+
+            <Link href={
+                {
+                    pathname: "/admin/blogs",
+                    query: credentials
+                }
+            }>
+                View Messages
+            </Link>
 
         </main>
     )

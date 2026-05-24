@@ -3,7 +3,7 @@
     on the website. The user will be verified first then the display of the page will
     allow messages to be viewed after veification is passed.
 */
-export default function Messages() {
+export default async function Messages() {
 
     return (
         <main>
