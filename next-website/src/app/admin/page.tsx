@@ -68,7 +68,7 @@ export default async function Admin({
                     query: credentials
                 }
             }>
-                View Messages
+                View Blogs
             </Link>
 
         </main>

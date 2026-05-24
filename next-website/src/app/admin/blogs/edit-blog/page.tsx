@@ -4,6 +4,9 @@ import Link from "next/link";
 // Import helper functions
 import { verifyPageAccess } from "@/helpers/login-server-functions/verifyPageAccess";
 
+/*
+    This page is for editing an existing blog post.
+*/
 export default async function EditBlog({
   searchParams,
 }: {
@@ -35,6 +38,15 @@ export default async function EditBlog({
         <main>
 
             <h1>Edit Blog</h1>
+
+            <Link href={
+                {
+                    pathname: "/admin/blogs",
+                    query: credentials
+                }
+            }>
+                Back to Blogs Dashboard
+            </Link>
 
         </main>
     )

@@ -40,6 +40,13 @@ export default async function Messages({
 
             <h1>Messages</h1>
 
+            <Link href={{
+                pathname: "/admin",
+                query: credentials
+            }}>
+                Back to Admin Panel
+            </Link>
+
         </main>
     )
 }

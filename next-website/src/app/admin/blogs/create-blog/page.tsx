@@ -4,6 +4,9 @@ import Link from "next/link";
 // Import helper functions
 import { verifyPageAccess } from "@/helpers/login-server-functions/verifyPageAccess";
 
+/*
+    This page is for the creation of a blog post.
+*/
 export default async function CreateBlog({
   searchParams,
 }: {
@@ -34,6 +37,15 @@ export default async function CreateBlog({
         <main>
 
             <h1>Create Blog</h1>
+
+            <Link href={
+                {
+                    pathname: "/admin/blogs",
+                    query: credentials
+                }
+            }>
+                Back to Blogs Dashboard
+            </Link>
 
         </main>
     )

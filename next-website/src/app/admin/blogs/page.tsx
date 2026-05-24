@@ -39,6 +39,27 @@ export default async function Blogs({
 
             <h1>Blogs</h1>
 
+            <Link href={{
+                pathname: "/admin",
+                query: credentials
+            }}>
+                Back to Admin Panel
+            </Link>
+
+            <Link href={{
+                pathname: "/admin/blogs/create-blog",
+                query: credentials
+            }}>
+                Create Blog
+            </Link>
+
+            <Link href={{
+                pathname: "/admin/blogs/edit-blog",
+                query: credentials
+            }}>
+                Edit Blog
+            </Link>
+
         </main>
     )
 }
