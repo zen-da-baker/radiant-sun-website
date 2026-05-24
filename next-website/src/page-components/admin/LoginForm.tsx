@@ -4,7 +4,6 @@
 import { useState, useEffect } from "react";
 
 // Import models
-import { Token } from "@/models/Token";
 import { SecurityQuestion } from "@/models/SecurityQuestion";
 
 // The component form for the client side

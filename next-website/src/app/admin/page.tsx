@@ -18,8 +18,6 @@ export default function Admin() {
 
     let loggedIn = false;
 
-    console.log( new Token() );
-
     if ( !loggedIn ) {
 
         return (
