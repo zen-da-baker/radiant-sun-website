@@ -51,6 +51,8 @@ export default async function Admin({
 
             <h1>Welcome to the Admin panel { username }</h1>
 
+            <p>Access the features below.</p>
+
             <Link href={
                 {
                     pathname: "/admin/messages",
