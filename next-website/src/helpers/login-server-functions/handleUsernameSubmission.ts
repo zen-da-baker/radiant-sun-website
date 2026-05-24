@@ -5,7 +5,10 @@ import { MongoClient } from "mongodb";
 import { escapeStrings } from "../escapeStrings";
 import { createRandomNumber } from "../createRandomNumber";
 
-export async function handleUsernameSubmission( username: string ): Promise<string> {
+// Import data models
+import { SecurityQuestion } from "@/models/SecurityQuestion";
+
+export async function handleUsernameSubmission( username: string ): Promise<SecurityQuestion | null> {
 
     "use server"
 
@@ -17,13 +20,13 @@ export async function handleUsernameSubmission( username: string ): Promise<stri
 
     if ( databaseURI === undefined || databaseName === undefined ) {
 
-        return "";
+        return null;
 
     }
 
     if ( username === "" ) {
 
-        return "";
+        return null;
 
     }
 
@@ -41,15 +44,20 @@ export async function handleUsernameSubmission( username: string ): Promise<stri
 
         if ( profile === null ) {
 
-            return "";
+            return null;
 
         }
 
-        const keys = Object.keys( profile );
+        // Picking a random question
+        const questions = profile.questions;
 
-        const questionIndex = createRandomNumber( 2, keys.length );
+        const listSize = questions.length;
 
-        return keys[ questionIndex ];
+        const randomQuestionIndex = Math.floor( Math.random() * listSize );
+
+        const randomQuestion: SecurityQuestion = questions[ randomQuestionIndex ];
+
+        return randomQuestion;
 
     } catch( error: any ) {
 
@@ -57,6 +65,6 @@ export async function handleUsernameSubmission( username: string ): Promise<stri
 
     }
 
-    return "";
+    return null;
 
 }

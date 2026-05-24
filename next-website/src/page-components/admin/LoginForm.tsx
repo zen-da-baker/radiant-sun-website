@@ -5,12 +5,13 @@ import { useState } from "react";
 
 // Import models
 import { Token } from "@/models/Token";
+import { SecurityQuestion } from "@/models/SecurityQuestion";
 
 // The component form for the client side
 export function LoginForm( 
     { handleUsernameSubmission } 
     : 
-    { handleUsernameSubmission: ( username: string ) => Promise<string> } 
+    { handleUsernameSubmission: ( username: string ) => Promise<SecurityQuestion | null> } 
 ) {
 
     const [ question, setQuestion ] = useState<string>("");
@@ -44,9 +45,13 @@ export function LoginForm(
         }
 
         // Trigger the server function which is a network request
-        const questionResponse = await handleUsernameSubmission( username );
+        const questionSelection: SecurityQuestion | null = await handleUsernameSubmission( username );
 
-        setQuestion( questionResponse );
+        if ( questionSelection !== null ) {
+
+            setQuestion( questionSelection.question );
+        
+        }
 
     }
 
@@ -69,7 +74,9 @@ export function LoginForm(
                 }
             </label>
 
-            <button onClick={ handleLoginSubmission }>Login</button>
+            { !question ? <button onClick={ handleLoginSubmission }>Confirm Username</button> : null }
+
+            { question ? <button>Submit Answer</button> : null }
 
         </div>
     )
