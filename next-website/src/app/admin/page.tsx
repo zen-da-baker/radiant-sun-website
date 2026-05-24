@@ -1,5 +1,5 @@
 // Import Next packages
-import { redirect } from "next/navigation";
+import Link from "next/link";
 
 // Import components
 import { LoginForm } from "@/page-components/admin/LoginForm";
@@ -15,17 +15,29 @@ import { Token } from "../../models/Token";
 /*
     This page is for the viewing of messages submitted to the website and 
     for the creation of blog posts.
+    It expects a query parameter to carry the credentials of the user. If the user
+    is not authorized, they will be redirected to the login page automatically.
 */
-export default function Admin() {
+export default async function Admin({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
 
-    let loggedIn = false;
+    const credentials = await searchParams;
 
-    if ( !loggedIn ) {
+    const verified = await verifyPageAccess( credentials.username, credentials.tokenId );
+
+    if ( !verified ) {
 
         return (
             <main>
 
-                <h1>Admin</h1>
+                <h1>Not Authorized!</h1>
+
+                <p>You are not authorized to access this page. Please login.</p>
+
+                <Link href="/login">Login</Link>
 
             </main>
         )
@@ -35,7 +47,7 @@ export default function Admin() {
     return (
         <main>
 
-            <VerifyAccess verifyPageAccess={ verifyPageAccess } />
+            { /* <VerifyAccess verifyPageAccess={ verifyPageAccess } /> */ }
 
             <h1>Admin</h1>
 

@@ -21,7 +21,7 @@ export async function loginRedirect( username: string, tokenId: string ): Promis
 
     if ( verified ) {
 
-        redirect("/admin");
+        redirect( "/admin?username=" + username + "&tokenId=" + tokenId );
 
     }
 
