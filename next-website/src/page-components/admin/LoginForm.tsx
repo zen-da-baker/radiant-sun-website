@@ -9,28 +9,33 @@ import { SecurityQuestion } from "@/models/SecurityQuestion";
 
 // The component form for the client side
 export function LoginForm( 
-    { handleUsernameSubmission } 
+    { handleUsernameSubmission, handleAnswerSubmission } 
     : 
-    { handleUsernameSubmission: ( username: string ) => Promise<SecurityQuestion | null> } 
+    { 
+        handleUsernameSubmission: ( username: string ) => Promise<SecurityQuestion | void> 
+        handleAnswerSubmission: ( question: string, answer: string, username: string ) => Promise<string | void>
+    } 
 ) {
 
+    let accessToken = localStorage.getItem("radiant-sun-access-token");
+    let storedUsername = localStorage.getItem("radiant-sun-username");
+
+    // The local state of this component
+    const [ username, setUsername ] = useState<string>("");
     const [ question, setQuestion ] = useState<string>("");
+    const [ answer, setAnswer ] = useState<string>("");
 
-    // Local variables for storing the input values
-    let username: string = "";
-
-    let answer: string = "";
 
     // The local variable update functions
     function usernameHandler( event: any ) {
 
-        username = event.target.value;
+        setUsername(event.target.value);
 
     }
 
     function answerHandler( event: any ) {
 
-        answer = event.target.value;
+        setAnswer(event.target.value);
 
     }
 
@@ -45,12 +50,29 @@ export function LoginForm(
         }
 
         // Trigger the server function which is a network request
-        const questionSelection: SecurityQuestion | null = await handleUsernameSubmission( username );
+        const questionSelection: SecurityQuestion | void = await handleUsernameSubmission( username );
 
-        if ( questionSelection !== null ) {
+        // The question string is now displayed to the user and the form UI switches
+        if ( questionSelection ) {
 
             setQuestion( questionSelection.question );
         
+        }
+
+    }
+
+    // API handler function that submits the question pair to the server
+    async function submitAnswer() {
+
+        const tokenString: string | void = await handleAnswerSubmission( question, answer, username );
+
+        if ( tokenString ) {
+
+            localStorage.setItem( "radiant-sun-access-token", tokenString );
+            localStorage.setItem("radiant-sun-username", username );
+
+            location.assign( location.origin + "/admin" );
+
         }
 
     }
@@ -76,7 +98,7 @@ export function LoginForm(
 
             { !question ? <button onClick={ handleLoginSubmission }>Confirm Username</button> : null }
 
-            { question ? <button>Submit Answer</button> : null }
+            { question ? <button onClick={ submitAnswer }>Submit Answer</button> : null }
 
         </div>
     )

@@ -1,6 +1,9 @@
 // Import helper functions
 import { createTokenString } from "@/helpers/createTokenString";
 
+/*
+    This access token is used for regulating permissions on certain pages such as the admin pages.
+*/
 export class Token {
 
     username: string;

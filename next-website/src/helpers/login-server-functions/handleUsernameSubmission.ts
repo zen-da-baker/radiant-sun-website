@@ -3,12 +3,16 @@ import { MongoClient } from "mongodb";
 
 // Import other helper functions
 import { escapeStrings } from "../escapeStrings";
-import { createRandomNumber } from "../createRandomNumber";
 
 // Import data models
 import { SecurityQuestion } from "@/models/SecurityQuestion";
 
-export async function handleUsernameSubmission( username: string ): Promise<SecurityQuestion | null> {
+/*
+    This is a server function that expects a username string from the client. The function searches
+    for the user from the database. If the user is found, a random question is chosen and sent back to the
+    user. 
+*/
+export async function handleUsernameSubmission( username: string ): Promise<SecurityQuestion | void> {
 
     "use server"
 
@@ -20,13 +24,13 @@ export async function handleUsernameSubmission( username: string ): Promise<Secu
 
     if ( databaseURI === undefined || databaseName === undefined ) {
 
-        return null;
+        return;
 
     }
 
     if ( username === "" ) {
 
-        return null;
+        return;
 
     }
 
@@ -40,11 +44,11 @@ export async function handleUsernameSubmission( username: string ): Promise<Secu
 
         const collection = database.collection("radiant-sun-questions");
 
-        const profile = await collection.findOne({ user: username });
+        const profile = await collection.findOne( { user: username } );
 
         if ( profile === null ) {
 
-            return null;
+            return;
 
         }
 
@@ -65,6 +69,6 @@ export async function handleUsernameSubmission( username: string ): Promise<Secu
 
     }
 
-    return null;
+    return;
 
 }
