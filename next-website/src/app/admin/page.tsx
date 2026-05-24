@@ -49,7 +49,7 @@ export default async function Admin({
     return (
         <main>
 
-            <h1>Welcome to the Admin panel { credentials.username }</h1>
+            <h1>Welcome to the Admin panel { username }</h1>
 
             <Link href={
                 {
