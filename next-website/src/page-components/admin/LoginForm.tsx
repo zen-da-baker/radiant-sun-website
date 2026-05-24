@@ -1,7 +1,7 @@
 "use client"
 
 // Import React components
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Import models
 import { Token } from "@/models/Token";
@@ -9,16 +9,27 @@ import { SecurityQuestion } from "@/models/SecurityQuestion";
 
 // The component form for the client side
 export function LoginForm( 
-    { handleUsernameSubmission, handleAnswerSubmission } 
+    { handleUsernameSubmission, handleAnswerSubmission, loginRedirect } 
     : 
     { 
         handleUsernameSubmission: ( username: string ) => Promise<SecurityQuestion | void> 
         handleAnswerSubmission: ( question: string, answer: string, username: string ) => Promise<string | void>
+        loginRedirect: ( username: string, tokenId: string ) => Promise<void>
     } 
 ) {
 
-    let accessToken = localStorage.getItem("radiant-sun-access-token");
-    let storedUsername = localStorage.getItem("radiant-sun-username");
+    useEffect( () => {
+
+        let accessToken = localStorage.getItem("radiant-sun-access-token");
+        let storedUsername = localStorage.getItem("radiant-sun-username");
+
+        if ( accessToken && storedUsername ) {
+
+            loginRedirect( storedUsername, accessToken );
+
+        }
+
+    }, [])
 
     // The local state of this component
     const [ username, setUsername ] = useState<string>("");

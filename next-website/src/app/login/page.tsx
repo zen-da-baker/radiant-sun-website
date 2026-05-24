@@ -4,6 +4,7 @@ import { LoginForm } from "@/page-components/admin/LoginForm";
 // Import helper functions
 import { handleUsernameSubmission } from "@/helpers/login-server-functions/handleUsernameSubmission";
 import { handleAnswerSubmission } from "@/helpers/login-server-functions/handleAnswerSubmission";
+import { loginRedirect } from "@/helpers/login-server-functions/loginRedirect";
 
 export default function Login() {
 
@@ -15,6 +16,7 @@ export default function Login() {
             <LoginForm 
                 handleUsernameSubmission={ handleUsernameSubmission } 
                 handleAnswerSubmission={ handleAnswerSubmission }
+                loginRedirect={ loginRedirect }
             />
 
         </main>
