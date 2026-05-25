@@ -4,6 +4,9 @@ import Link from "next/link";
 // Import helper functions
 import { verifyPageAccess } from "@/helpers/login-server-functions/verifyPageAccess";
 
+// Import components
+import { CreateBlogForm } from "@/page-components/blog/CreateBlogForm";
+
 /*
     This page is for the creation of a blog post. The query parameters of the page
     are expected to be the credentials of the user.
@@ -47,6 +50,8 @@ export default async function CreateBlog({
             }>
                 Back to Blogs Dashboard
             </Link>
+
+            <CreateBlogForm />
 
         </main>
     )

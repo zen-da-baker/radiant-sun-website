@@ -3,12 +3,12 @@ import { Line } from "./Line";
 
 export class BlogPost {
 
+    _id: any;
+
     author: string = "";
 
     title: string = "";
-
-    tags: Array<string> = [];
-
+    
     content: Array<Line> = [];
 
 }
