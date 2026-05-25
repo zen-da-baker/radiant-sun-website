@@ -5,7 +5,8 @@ import Link from "next/link";
 import { verifyPageAccess } from "@/helpers/login-server-functions/verifyPageAccess";
 
 /*
-    This page is for the creation of a blog post.
+    This page is for the creation of a blog post. The query parameters of the page
+    are expected to be the credentials of the user.
 */
 export default async function CreateBlog({
   searchParams,

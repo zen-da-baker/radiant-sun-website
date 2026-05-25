@@ -5,7 +5,8 @@ import Link from "next/link";
 import { verifyPageAccess } from "@/helpers/login-server-functions/verifyPageAccess";
 
 /*
-    This page is for editing an existing blog post.
+    This page is for editing an existing blog post. The query parameter is expected to be the credentials 
+    of the user as well as the ID of the blog post to be edited.
 */
 export default async function EditBlog({
   searchParams,
