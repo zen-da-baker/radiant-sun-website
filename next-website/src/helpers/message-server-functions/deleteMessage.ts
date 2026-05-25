@@ -1,3 +1,4 @@
+"use server"
 
 /*
     This helper function validates the user credentials and then deletes the message
@@ -5,7 +6,7 @@
 */
 export async function deleteMessage( username: string, tokenId: string, messageId: string ) {
 
-    "use server"
+    
 
     console.log("Delete Message");
 

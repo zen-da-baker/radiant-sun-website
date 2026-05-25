@@ -29,8 +29,12 @@ export default function ContactPage() {
 
         let submittedFrom = "Radiant Sun";
 
+        const today = new Date();
+
+        const submissionDate = today.toString();
+
         const message = {
-            name, email, subject, body, submittedFrom, messageRead
+            name, email, subject, body, submittedFrom, messageRead, submissionDate
         }
 
         const databaseURI = process.env.databaseURI;

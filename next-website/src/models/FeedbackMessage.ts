@@ -14,4 +14,6 @@ export class FeedbackMessage {
     
     messageRead: boolean = false;
 
+    submissionDate: string = new Date().toString();
+
 }
