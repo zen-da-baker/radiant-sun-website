@@ -1,3 +1,5 @@
+"use client"
+
 // Import React components
 import { useEffect } from "react"
 
@@ -10,8 +12,6 @@ export function VerifyAccess(
     :
     { verifyPageAccess: ( username: string | null, tokenId: string | null ) => Promise<void> }
 ) {
-
-    "use client"
 
     useEffect( () => {
 

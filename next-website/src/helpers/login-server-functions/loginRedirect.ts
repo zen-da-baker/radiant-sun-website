@@ -1,3 +1,5 @@
+"use server"
+
 // Import Next helper functions
 import { redirect } from "next/navigation";
 
@@ -10,8 +12,6 @@ import { verifyAccessToken } from "./verifyAccessToken";
     a valid username and tokenId stored in their browser.
 */
 export async function loginRedirect( username: string, tokenId: string ): Promise<void> {
-
-    "use server"
 
     username = escapeStrings( username );
 

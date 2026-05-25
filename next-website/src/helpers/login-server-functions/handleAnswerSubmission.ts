@@ -1,5 +1,7 @@
-// Import MongoDB client
-import { MongoClient } from "mongodb";
+"use server"
+
+// Import MongoDB database
+import { database } from "@/database/database";
 
 // Import helper functions
 import { escapeStrings } from "../escapeStrings";
@@ -16,25 +18,12 @@ import { Token } from "@/models/Token";
 */
 export async function handleAnswerSubmission( question: string, answer: string, username: string ): Promise<string | void> {
 
-    "use server"
-
     // First the question, answer, and username are estracted
     question = escapeStrings( question );
 
     answer = escapeStrings( answer );
 
     username = escapeStrings( username );
-
-    // Next, the database connection is made
-    const databaseURI = process.env.databaseURI;
-
-    const databaseName = process.env.databaseName;
-
-    if ( databaseURI === undefined || databaseName === undefined ) {
-
-        return;
-
-    }
 
     if ( username === "" ) {
 
@@ -44,15 +33,9 @@ export async function handleAnswerSubmission( question: string, answer: string, 
 
     try {
 
-        const client = new MongoClient( databaseURI );
+        const questionsCollection = database.collection("radiant-sun-questions");
 
-        await client.connect();
-
-        const database = client.db( databaseName );
-
-        const collection = database.collection("radiant-sun-questions");
-
-        const profile = await collection.findOne( { user: username } );
+        const profile = await questionsCollection.findOne( { user: username } );
 
         if ( profile === null ) {
 

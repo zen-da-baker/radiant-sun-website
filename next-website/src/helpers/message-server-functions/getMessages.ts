@@ -1,5 +1,5 @@
-// Import MongoDB client
-import { MongoClient } from "mongodb";
+// Import MongoDB database
+import { database } from "@/database/database";
 
 // Import data models
 import { FeedbackMessage } from "@/models/FeedbackMessage";
@@ -9,30 +9,13 @@ import { FeedbackMessage } from "@/models/FeedbackMessage";
     access the database to pull any messages for the website. The function
     returns a list of messages which may be empty.
 */
-export async function getMessages(): Promise< Array<any> | null > {
-
-    // Next, the database connection is made
-    const databaseURI = process.env.databaseURI;
-
-    const databaseName = process.env.databaseName;
-
-    if ( databaseURI === undefined || databaseName === undefined ) {
-
-        return null;
-
-    }
+export async function getMessages(): Promise<Array<any> | null> {
 
     try {
 
-        const client = new MongoClient( databaseURI );
+        const messagesCollection = database.collection("feedback-message-collection");
 
-        await client.connect();
-
-        const database = client.db( databaseName );
-
-        const collection = database.collection("feedback-message-collection");
-
-        const findCursor = collection.find( { submittedFrom: "Radiant Sun" } );
+        const findCursor = messagesCollection.find( { submittedFrom: "Radiant Sun" } );
 
         const allMessages = await findCursor.toArray();
 

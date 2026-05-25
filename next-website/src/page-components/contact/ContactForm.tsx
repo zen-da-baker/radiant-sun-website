@@ -1,8 +1,3 @@
-/*
-    This client component submits the contact form to the server API endpoint when the fields have been validated. 
-    From the API endpoint, the message is stored in a database where the message can then be viewed elsewhere.
-*/
-
 "use client"
 
 // Import React packages
@@ -14,7 +9,11 @@ import { StatusBanner } from "../StatusBanner";
 // Import styles
 import "../../../styles/form.css";
 
-// The contact form would receive a function from the server for how to handle submitting data
+/*
+    This client component submits the contact form to the server API endpoint when the fields have been validated. 
+    From the API endpoint, the message is stored in a database where the message can then be viewed elsewhere.
+    The contact form would receive a function from the server for how to handle submitting data.
+*/
 export function ContactForm( { formAction }: { formAction: any } ) {
 
     const [ visibility, setVisibility ] = useState<string>("hidden");

@@ -55,9 +55,11 @@ export async function toggleMessageReadStatus( username: string, tokenId: string
 
     }
 
+    // The boolean is inverted
     const newReadStatus = !message.messageRead;
 
-    await messageCollection.updateOne( { _id: new ObjectId( messageId ) }, { $set: { messageRead: newReadStatus } } );
+    // The message read status is updated
+    messageCollection.updateOne( { _id: new ObjectId( messageId ) }, { $set: { messageRead: newReadStatus } } );
 
     return newReadStatus;
 

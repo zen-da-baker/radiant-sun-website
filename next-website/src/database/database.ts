@@ -17,4 +17,6 @@ if ( process.env.databaseURI && process.env.databaseName ) {
 
 const client = new MongoClient( databaseURI );
 
+await client.connect();
+
 export const database = client.db( databaseName );

@@ -1,4 +1,5 @@
-import { MongoClient } from "mongodb";
+// The MongoDB database
+import { database } from "@/database/database";
 
 // Import components
 import { ContactForm } from "@/page-components/contact/ContactForm";
@@ -29,36 +30,22 @@ export default function ContactPage() {
 
         let submittedFrom = "Radiant Sun";
 
+        // The data string is created on the server to allow for unescaped characters to be used and are not accepted by the client
         const today = new Date();
 
         const submissionDate = today.toString();
 
+        // The message object to be stored
         const message = {
             name, email, subject, body, submittedFrom, messageRead, submissionDate
         }
 
-        const databaseURI = process.env.databaseURI;
-
-        const databaseName = process.env.databaseName;
-
-        let client: MongoClient;
-
         // Now that everything is ready for storage, the database connection is made
         try {
 
-            if ( databaseURI !== null && databaseURI !== undefined ) {
+            const collection = database.collection("feedback-message-collection");
 
-                client = new MongoClient( databaseURI );
-
-                await client.connect();
-
-                const db = client.db( databaseName );
-
-                const collection = db.collection("feedback-message-collection");
-
-                collection.insertOne( message );
-
-            }
+            collection.insertOne( message );
 
         } catch( error: any ) {
 

@@ -1,5 +1,7 @@
-// Import database client
-import { MongoClient } from "mongodb";
+"use server"
+
+// Import MongoDB database
+import { database } from "@/database/database";
 
 // Import other helper functions
 import { escapeStrings } from "../escapeStrings";
@@ -14,19 +16,7 @@ import { SecurityQuestion } from "@/models/SecurityQuestion";
 */
 export async function handleUsernameSubmission( username: string ): Promise<SecurityQuestion | void> {
 
-    "use server"
-
     username = escapeStrings( username );
-
-    const databaseURI = process.env.databaseURI;
-
-    const databaseName = process.env.databaseName;
-
-    if ( databaseURI === undefined || databaseName === undefined ) {
-
-        return;
-
-    }
 
     if ( username === "" ) {
 
@@ -36,15 +26,9 @@ export async function handleUsernameSubmission( username: string ): Promise<Secu
 
     try {
 
-        const client = new MongoClient( databaseURI );
+        const questionsCollection = database.collection("radiant-sun-questions");
 
-        await client.connect();
-
-        const database = client.db( databaseName );
-
-        const collection = database.collection("radiant-sun-questions");
-
-        const profile = await collection.findOne( { user: username } );
+        const profile = await questionsCollection.findOne( { user: username } );
 
         if ( profile === null ) {
 
