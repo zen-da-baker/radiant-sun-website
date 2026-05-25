@@ -1,5 +1,8 @@
 "use server"
 
+// Import MongoDB helper
+import { ObjectId } from "mongodb";
+
 // Import MongoDB database
 import { database } from "@/database/database";
 
@@ -9,7 +12,6 @@ import { escapeStrings } from "../escapeStrings";
 
 // Import data models
 import { FeedbackMessage } from "@/models/FeedbackMessage";
-import { ObjectId } from "mongodb";
 
 /*
     This server side helper function is invoked from inside the client.

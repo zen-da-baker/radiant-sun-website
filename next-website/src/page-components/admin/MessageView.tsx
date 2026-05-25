@@ -30,6 +30,7 @@ export function MessageView( { messageString } : { messageString: string } ) {
 
     // The state of the message read status
     const [ messageRead, setMessageRead ] = useState<boolean>( message.messageRead );
+    const [ deleted, setDeleted ] = useState<boolean>( false );
 
     // This handler function updates the read status of the message on both the client and server when the button is pressed
     async function handleToggleRead() {
@@ -56,12 +57,20 @@ export function MessageView( { messageString } : { messageString: string } ) {
 
             deleteMessage( username, tokenId, message._id );
 
+            // The internal state of the component is set to recognize deletion after the server action is taken
+            setDeleted( true );
+
         }
 
     }
 
     return (
-        <div className="card">
+        <div className="card" style={ 
+
+            // When the deleted state is activated, the message is no longer displayed but technically exists in memory
+            deleted ? { display: "none" } : { display: "block" } 
+            
+        }>
 
             { messageRead ? <span>Message Read</span> : <span>Unread</span> }
 
