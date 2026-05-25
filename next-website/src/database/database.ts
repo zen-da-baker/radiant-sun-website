@@ -2,10 +2,9 @@
 import { MongoClient } from "mongodb";
 
 // Get the environment variables from the server for the database
+let databaseURI = "mongodb://localhost:27017";
 
-let databaseURI = "";
-
-let databaseName = "";
+let databaseName = "data";
 
 if ( process.env.databaseURI && process.env.databaseName ) {
     
