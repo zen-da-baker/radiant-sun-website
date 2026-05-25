@@ -7,6 +7,7 @@ import { Footer } from "@/page-components/Footer";
 // Import styling
 import "../../styles/main.css";
 import "../../styles/typography.css";
+import "../../styles/card.css";
 
 // Create the meta data of the website applied to all pages
 export const metadata: Metadata = {

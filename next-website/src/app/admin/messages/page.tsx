@@ -8,6 +8,9 @@ import { getMessages } from "@/helpers/message-server-functions/getMessages";
 // Import data models
 import { FeedbackMessage } from "@/models/FeedbackMessage";
 
+// Import components
+import { MessageView } from "@/page-components/admin/MessageView";
+
 /*
     This page is a protected admin page for viewing and deleting messages left
     on the website. The user will be verified first then the display of the page will
@@ -50,15 +53,11 @@ export default async function Messages({
         // The messages would have already had their characters escaped on submission so they do not need to do so here
         messageComponents = allMessages.map( ( message: FeedbackMessage, index: number ) => {
 
+            const messageString = JSON.stringify( message );
+
             return (
                 <div key={ index }>
-                    <h3>{ message.name }</h3>
-
-                    <p>{ message.email }</p>
-
-                    <p>{ message.subject }</p>
-
-                    <p>{ message.body }</p>
+                    <MessageView messageString={ messageString } />
                 </div>
             )
 
