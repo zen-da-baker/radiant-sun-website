@@ -1,6 +1,7 @@
-// Import data models
-import { Line } from "./Line";
-
+/*
+    This data type contains the meta data for a blog post as well as the location
+    of the file that will be displayed. The file is expected to be markdown.
+*/
 export class BlogPost {
 
     _id: any;
@@ -8,7 +9,9 @@ export class BlogPost {
     author: string = "";
 
     title: string = "";
-    
-    content: Array<Line> = [];
+
+    postDate: string = "";
+
+    fileLocation: string = "/radiant-sun/blogs/";
 
 }
