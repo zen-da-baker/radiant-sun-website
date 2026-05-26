@@ -10,6 +10,9 @@ import { database } from "@/database/database";
 // Import MongoDB helpers
 import { ObjectId } from "mongodb";
 
+// Import Markdoc package
+import Markdoc from '@markdoc/markdoc';
+
 // Import helper functions
 import { escapeStrings } from "@/helpers/escapeStrings";
 
@@ -26,7 +29,7 @@ export default async function ReadBlog({
 
     const params = await searchParams;
 
-    let postId = params.id;
+    let postId = params.postId;
 
     // If the blog post ID is not a single string, the error page is shown
     if ( typeof postId !== "string" ) {
@@ -71,9 +74,12 @@ export default async function ReadBlog({
 
     try {
 
-        file = await fs.readFile( blog.fileLocation );
+        file = await fs.readFile( 
+            //blog.fileLocation 
+            "/Users/donovan/Projects/radiant-sun/next-website/public/testBlog.md"
+        );
 
-        blogContents = await file.text();
+        blogContents = await file.toString();
 
     } catch( error: any ) {
 
@@ -91,6 +97,20 @@ export default async function ReadBlog({
 
     }
 
+    const doc = `
+# Hello world.
+> My first Markdoc page
+${ blogContents }
+    `;
+
+    const ast = Markdoc.parse(doc);
+
+    const content = Markdoc.transform(ast);
+
+    const html = Markdoc.renderers.html(content);
+
+    console.log( html )
+
     return (
         <main>
 
@@ -102,7 +122,8 @@ export default async function ReadBlog({
 
             <h3>{ blog.author }</h3>
 
-            <p>{ blogContents }</p>
+            <div dangerouslySetInnerHTML={ { __html: html } }>
+            </div>
 
         </main>
     )
