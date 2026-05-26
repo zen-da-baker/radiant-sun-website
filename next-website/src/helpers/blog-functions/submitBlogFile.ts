@@ -72,7 +72,7 @@ export async function submitBlogFile(
 
     const filename = title + ".md";
 
-    const filePath = "/bytesized-files/radiant-sun/blogs/";
+    const filePath = process.env.filesDirectory + "/blogs/";
 
     const blogPostMetaData = {
         title, author, 
