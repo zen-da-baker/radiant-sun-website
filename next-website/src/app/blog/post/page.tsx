@@ -97,30 +97,21 @@ export default async function ReadBlog({
 
     }
 
-    const doc = `
-# Hello world.
-> My first Markdoc page
-${ blogContents }
-    `;
+    // The blog file is parsed with the Stripe provided Markdoc package
+    const ast = Markdoc.parse( blogContents );
 
-    const ast = Markdoc.parse(doc);
+    const content = Markdoc.transform( ast );
 
-    const content = Markdoc.transform(ast);
-
-    const html = Markdoc.renderers.html(content);
-
-    console.log( html )
+    const html = Markdoc.renderers.html( content );
 
     return (
         <main>
 
             <Link href="/blog">Return to Blog</Link>
 
-            <h1>Blog Post</h1>
+            <p>Blog Post | { blog.title }</p>
 
-            <h2>{ blog.title }</h2>
-
-            <h3>{ blog.author }</h3>
+            <p>By { blog.author }</p>
 
             <div dangerouslySetInnerHTML={ { __html: html } }>
             </div>
