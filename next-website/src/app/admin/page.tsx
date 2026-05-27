@@ -1,5 +1,6 @@
 // Import Next packages
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 // Import helper functions
 import { escapeStrings } from "@/helpers/escapeStrings";
@@ -23,17 +24,7 @@ export default async function Admin({
 
     if ( !verified || typeof credentials.username !== "string" ) {
 
-        return (
-            <main>
-
-                <h1>Not Authorized!</h1>
-
-                <p>You are not authorized to access this page. Please login.</p>
-
-                <Link href="/login">Login</Link>
-
-            </main>
-        )
+        redirect("/login");
 
     }
 
