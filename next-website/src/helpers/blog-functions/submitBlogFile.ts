@@ -5,7 +5,7 @@ import { database } from "@/database/database";
 
 // Import Node system
 import fs from "node:fs"
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 // Import helper functions
@@ -62,7 +62,7 @@ export async function submitBlogFile(
     // Meta data established
     const today = new Date();
 
-    let file = formData.get("file");
+    let file: any = formData.get("file");
 
     if ( !file ) {
 
@@ -70,14 +70,30 @@ export async function submitBlogFile(
 
     }
 
-    const filename = title + ".md";
+    // If the type of file is not markdown, the function is terminated before the save operation
+    if ( file.type !== "text/markdown" ) {
 
-    const filePath = process.env.filesDirectory + "/blogs/";
+        return;
 
+    }
+
+    // Contents of the blog post markdown file are extracted
+    let blogText: string = await file.text();
+
+    // Remove all script and style tags
+    blogText = blogText.replaceAll( "<script>", "" );
+
+    blogText = blogText.replaceAll( "</script>", "" );
+
+    blogText = blogText.replaceAll( "<style>", "" );
+
+    blogText = blogText.replaceAll( "</style>", "" );
+
+    // The blog post to be stored in the database
     const blogPostMetaData = {
         title, author, 
         postDate: today.toString(), 
-        fileLocation: path.join( filePath, filename )
+        contents: blogText
     }
 
     // The meta data is stored in the database
@@ -86,24 +102,6 @@ export async function submitBlogFile(
     try {
 
         blogCollection.insertOne( blogPostMetaData );
-
-        // If the file path does not already exist, it will be created
-        try {
-
-            if ( !fs.existsSync( filePath ) ) {
-
-                fs.mkdirSync( filePath );
-            
-            }
-
-        } catch ( error: any ) {
-
-            console.error( error );
-
-        }
-
-        // The file is stored in the file system / volume
-        writeFile( blogPostMetaData.fileLocation, file.toString(), "utf-8" );
 
     } catch( error: any ) {
 

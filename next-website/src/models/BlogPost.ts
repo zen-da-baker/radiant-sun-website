@@ -12,6 +12,6 @@ export class BlogPost {
 
     postDate: string = "";
 
-    fileLocation: string = "/radiant-sun/blogs/";
+    contents: string = "";
 
 }

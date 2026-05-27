@@ -16,6 +16,8 @@ import Markdoc from '@markdoc/markdoc';
 // Import helper functions
 import { escapeStrings } from "@/helpers/escapeStrings";
 
+// Import data models
+import { BlogPost } from "@/models/BlogPost";
 
 /*
     This page is for viewing a blog post which publicly available. The query parameters
@@ -52,6 +54,8 @@ export default async function ReadBlog({
     const blogsCollection = database.collection("radiant-sun-blogs");
 
     const blog = await blogsCollection.findOne({ _id: new ObjectId( postId ) });
+
+    console.log( blog );
 
     // If the blog does not exist, the error result is shown
     if ( blog === null ) {
@@ -97,8 +101,20 @@ export default async function ReadBlog({
 
     }
 
+    if ( !blog.contents ) {
+
+        return (
+            <main>
+
+                <h1>No Content to be displayed.</h1>
+
+            </main>
+        )
+
+    }
+
     // The blog file is parsed with the Stripe provided Markdoc package
-    const ast = Markdoc.parse( blogContents );
+    const ast = Markdoc.parse( blog.contents );
 
     const content = Markdoc.transform( ast );
 
