@@ -3,6 +3,14 @@ import Link from "next/link";
 
 // Import helper functions
 import { verifyPageAccess } from "@/helpers/login-server-functions/verifyPageAccess";
+import { getBlog } from "@/helpers/blog-functions/getBlog";
+import { escapeStrings } from "@/helpers/escapeStrings";
+
+// Import data types
+import { BlogPost } from "@/models/BlogPost";
+
+// Import components
+import { EditBlogForm } from "@/page-components/blog/EditBlogForm";
 
 /*
     This page is for editing an existing blog post. The query parameter is expected to be the credentials 
@@ -18,7 +26,7 @@ export default async function EditBlog({
 
     const verified = await verifyPageAccess( credentials.username, credentials.tokenId );
 
-    if ( !verified || typeof credentials.username !== "string" ) {
+    if ( !verified ) {
 
         return (
             <main>
@@ -34,6 +42,55 @@ export default async function EditBlog({
 
     }
 
+    // Get the specific blog identified
+    let postId = credentials.postId;
+
+    if ( typeof postId !== "string" || typeof credentials.tokenId !== "string" || typeof credentials.username !== "string" ) {
+
+        return (
+            <main>
+
+                <h1>Blog Post Not Found</h1>
+
+                <Link href={
+                    {
+                        pathname: "/admin/blogs",
+                        query: credentials
+                    }
+                }>
+                    Back to Blogs Dashboard
+                </Link>
+
+            </main>
+        )
+    }
+
+    postId = escapeStrings( postId );
+
+    const blog: BlogPost | null = await getBlog( postId );
+
+    if ( !blog ) {
+
+        return (
+            <main>
+
+                <h1>Blog Not Found</h1>
+
+                <Link href={
+                    {
+                        pathname: "/admin/blogs",
+                        query: credentials
+                    }
+                }>
+                    Back to Blogs Dashboard
+                </Link>
+
+            </main>
+        )
+    }
+
+    const blogString = JSON.stringify( blog );
+
     return (
 
         <main>
@@ -48,6 +105,8 @@ export default async function EditBlog({
             }>
                 Back to Blogs Dashboard
             </Link>
+
+            <EditBlogForm blogString={ blogString } username={ credentials.username } tokenId={ credentials.tokenId } />
 
         </main>
     )

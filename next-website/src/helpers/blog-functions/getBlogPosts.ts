@@ -6,7 +6,7 @@ export async function getBlogPosts() {
 
     const findCursor = blogCollection.find();
 
-    const allBlogs = findCursor.toArray();
+    const allBlogs = await findCursor.toArray();
 
     return allBlogs;
 

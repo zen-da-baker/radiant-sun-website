@@ -15,6 +15,7 @@ import Markdoc from '@markdoc/markdoc';
 
 // Import helper functions
 import { escapeStrings } from "@/helpers/escapeStrings";
+import { getBlog } from "@/helpers/blog-functions/getBlog";
 
 // Import data models
 import { BlogPost } from "@/models/BlogPost";
@@ -50,12 +51,7 @@ export default async function ReadBlog({
     // The characters are escaped
     postId = escapeStrings( postId );
 
-    // The blog post is queried from the database
-    const blogsCollection = database.collection("radiant-sun-blogs");
-
-    const blog = await blogsCollection.findOne({ _id: new ObjectId( postId ) });
-
-    console.log( blog );
+    const blog = await getBlog( postId );
 
     // If the blog does not exist, the error result is shown
     if ( blog === null ) {
