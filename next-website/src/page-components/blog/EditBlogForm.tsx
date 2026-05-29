@@ -8,6 +8,7 @@ import { useState } from "react";
 
 // Import helper functions
 import { saveBlogEdits } from "@/helpers/blog-functions/saveBlogEdits";
+import { deleteBlog } from "@/helpers/blog-functions/deleteBlog";
 
 // Import data types
 import { BlogPost } from "@/models/BlogPost";
@@ -19,6 +20,7 @@ export function EditBlogForm( { blogString, username, tokenId } : { blogString: 
     const [ title, setTitle ] = useState<string>( blog.title );
     const [ author, setAuthor ] = useState<string>( blog.author );
     const [ blogContents, setBlogContents ] = useState<string>( blog.contents );
+    const [ showDeleteModal, setShowDeleteModal ] = useState<boolean>( false );
 
     function handleTitleEdit( event: any ) {
 
@@ -55,8 +57,31 @@ export function EditBlogForm( { blogString, username, tokenId } : { blogString: 
 
     }
 
+    function firstDeleteStep() {
+
+        // Toggle the modal
+        setShowDeleteModal( prevState => !prevState );
+
+    }
+
+    async function confirmDeletion() {
+
+        deleteBlog( username, tokenId, blog._id );
+
+    }
+
     return (
         <div>
+
+            <div style={ showDeleteModal ? { display: "block" } : { display: "none" } }>
+
+                <button onClick={ confirmDeletion }>Confirm deleting { title }?</button>
+
+                <button onClick={ firstDeleteStep }>Cancel</button>
+
+            </div>
+
+            <button onClick={ firstDeleteStep }>Delete Blog Post</button>
 
             <label>
                 Title
