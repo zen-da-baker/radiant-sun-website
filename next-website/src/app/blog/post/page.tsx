@@ -68,35 +68,6 @@ export default async function ReadBlog({
 
     }
 
-    let file: any;
-
-    let blogContents: string;
-
-    try {
-
-        file = await fs.readFile( 
-            //blog.fileLocation 
-            "/Users/donovan/Projects/radiant-sun/next-website/public/testBlog.md"
-        );
-
-        blogContents = await file.toString();
-
-    } catch( error: any ) {
-
-        console.log( error );
-
-        return (
-            <main>
-
-                <h1>There was a Server Side Error</h1>
-
-                <Link href="/blog">Back to Blog</Link>
-
-            </main>
-        )
-
-    }
-
     if ( !blog.contents ) {
 
         return (
