@@ -66,8 +66,6 @@ export async function submitBlogFile(
 
     let file: any = formData.get("file");
 
-    console.log( file );
-
     if ( !content && !file ) {
 
         if ( !file ) {
@@ -100,6 +98,7 @@ export async function submitBlogFile(
     
     }
 
+    // If the file and textarea both have content, prioritize the file if it is markdown, otherwise prioritize the textarea
     if ( file && content ) {
 
         // If the type of file is not markdown, the function is terminated before the save operation

@@ -3,9 +3,6 @@
 // Import Next components
 import { useSearchParams } from "next/navigation";
 
-// Import React components
-import { useState } from "react"
-
 // Import helper functions
 import { submitBlogFile } from "@/helpers/blog-functions/submitBlogFile";
 
@@ -17,56 +14,17 @@ export function CreateBlogForm() {
 
     const tokenId = params.get("tokenId");
 
-    const [ title, setTitle ] = useState<string>("");
-    const [ author, setAuthor ] = useState<string>("");
-
-    let file: any  = "";
-
-    async function handleTitle( event: any ) {
-
-        setTitle( event.target.value );
-
-    }
-
-    async function handleAuthor( event: any ) {
-
-        setAuthor( event.target.value );
-
-    }
-
-    async function handleFile( event: any ) {
-
-        file = event.target.files[0];
-
-        console.log( file );
-
-    }
-
-    async function handleSubmit() {
-
-        if ( typeof username === "string" && typeof tokenId === "string" && file !== null ) {
-
-            // submitBlogFile( username, tokenId, title, author, file );
-
-            setTitle("");
-
-            setAuthor("");
-
-        }
-
-    }
-
     return (
         <form action={ submitBlogFile }>
 
             <label>
                 Title
-                <input name="title" type="text" onChange={ handleTitle } />
+                <input name="title" type="text" />
             </label>
 
             <label>
                 Author
-                <input name="author" type="text" onChange={ handleAuthor } />
+                <input name="author" type="text" />
             </label>
 
             <label>
@@ -76,7 +34,7 @@ export function CreateBlogForm() {
 
             <label>
                 Content File
-                <input name="file" type="file" onChange={ handleFile } accept=".md" />
+                <input name="file" type="file" accept=".md" />
             </label>
 
             <input name="username" type="hidden" value={ username ? username : "" } />
