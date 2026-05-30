@@ -33,6 +33,8 @@ export async function submitBlogFile(
     let tokenId = formData.get("tokenId");
     
     let title = formData.get("title");
+
+    let content = formData.get("text-content");
     
     let author = formData.get("author");
 
@@ -64,21 +66,55 @@ export async function submitBlogFile(
 
     let file: any = formData.get("file");
 
-    if ( !file ) {
+    console.log( file );
 
-        return;
+    if ( !content && !file ) {
+
+        if ( !file ) {
+
+            return;
+
+        }
 
     }
 
-    // If the type of file is not markdown, the function is terminated before the save operation
-    if ( file.type !== "text/markdown" ) {
+    let blogText: any;
 
-        return;
+    if ( !file && content ) {
 
+        blogText = content;
+
+    } 
+
+    if ( file && !content ) {
+
+        // If the type of file is not markdown, the function is terminated before the save operation
+        if ( file.type !== "text/markdown" ) {
+
+            return;
+
+        }
+
+        // Contents of the blog post markdown file are extracted
+        blogText = await file.text();
+    
     }
 
-    // Contents of the blog post markdown file are extracted
-    let blogText: string = await file.text();
+    if ( file && content ) {
+
+        // If the type of file is not markdown, the function is terminated before the save operation
+        if ( file.type === "text/markdown" ) {
+
+            // Contents of the blog post markdown file are extracted
+            blogText = await file.text();
+
+        } else {
+
+            blogText = content;
+
+        }
+
+    }
 
     // Remove all script and style tags
     blogText = blogText.replaceAll( "<script>", "" );

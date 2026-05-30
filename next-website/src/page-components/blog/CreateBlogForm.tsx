@@ -70,7 +70,12 @@ export function CreateBlogForm() {
             </label>
 
             <label>
-                Content
+                Content Text
+                <textarea name="text-content"></textarea>
+            </label>
+
+            <label>
+                Content File
                 <input name="file" type="file" onChange={ handleFile } accept=".md" />
             </label>
 
