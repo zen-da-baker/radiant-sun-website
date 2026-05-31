@@ -1,6 +1,7 @@
 // Import components
 import type { Metadata } from "next";
 
+// Layout components for all pages
 import { Header } from "@/page-components/Header";
 import { Footer } from "@/page-components/Footer";
 
