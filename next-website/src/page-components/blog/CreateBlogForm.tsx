@@ -6,6 +6,9 @@ import { useSearchParams } from "next/navigation";
 // Import helper functions
 import { submitBlogFile } from "@/helpers/blog-functions/submitBlogFile";
 
+// Import styling
+import "../../../styles/form.css";
+
 export function CreateBlogForm() {
 
     const params = useSearchParams();
@@ -15,7 +18,7 @@ export function CreateBlogForm() {
     const tokenId = params.get("tokenId");
 
     return (
-        <form action={ submitBlogFile }>
+        <form action={ submitBlogFile } className="form">
 
             <label>
                 Title

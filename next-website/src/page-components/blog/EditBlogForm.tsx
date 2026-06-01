@@ -13,6 +13,9 @@ import { deleteBlog } from "@/helpers/blog-functions/deleteBlog";
 // Import data types
 import { BlogPost } from "@/models/BlogPost";
 
+// Import styles
+import "../../../styles/form.css";
+
 export function EditBlogForm( { blogString, username, tokenId } : { blogString: string, username: string, tokenId: string } ) {
 
     const blog: BlogPost = JSON.parse( blogString )
@@ -71,7 +74,7 @@ export function EditBlogForm( { blogString, username, tokenId } : { blogString: 
     }
 
     return (
-        <div>
+        <div className="form">
 
             <div style={ showDeleteModal ? { display: "block" } : { display: "none" } }>
 
