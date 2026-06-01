@@ -96,7 +96,7 @@ export default async function ReadBlog({
 
             <p>By { blog.author }</p>
 
-            <div dangerouslySetInnerHTML={ { __html: html } }>
+            <div className="text-container" dangerouslySetInnerHTML={ { __html: html } }>
             </div>
 
         </main>

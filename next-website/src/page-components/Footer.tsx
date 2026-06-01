@@ -4,8 +4,12 @@ import Link from "next/link";
 // Import styles
 import "../../styles/footer.css";
 
+// The Bytesized Orange logo
 import logo from "../../public/icons/bytesized-orange.png";
 
+/*
+    The footer of the website
+*/
 export function Footer() {
     
     return (
@@ -25,25 +29,29 @@ export function Footer() {
 
             </nav>
 
-            <p className="text-center">
+            <div className="text-container">
 
-                &copy; 2023 Radiant Sun Devs
+                <p style={ { textAlign: "center" } }>
 
-            </p>
+                    &copy; 2023 Radiant Sun Devs
 
-            <p>
-                
-                Website by 
+                </p>
 
-                <a href="https://bytesizedcrew.com" rel="noreferrer" target="_blank">
+                <p style={ { textAlign: "center" } }>
+                    
+                    Website by 
 
-                    <img src={ logo.src } height={ 20 } width={ 20 } alt="Orange fruit" /> 
+                    <a href="https://bytesizedcrew.com" rel="noreferrer" target="_blank">
 
-                    <span id="bytesized">ByteSized Crew</span>
+                        <img src={ logo.src } height={ 20 } width={ 20 } alt="Orange fruit" /> 
 
-                </a>
+                        <span id="bytesized">ByteSized Crew</span>
 
-            </p>
+                    </a>
+
+                </p>
+
+            </div>
 
         </footer>
     )
