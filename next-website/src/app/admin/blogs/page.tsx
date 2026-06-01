@@ -3,12 +3,13 @@ import Link from "next/link";
 
 // Import helper functions
 import { getBlogPosts } from "@/helpers/blog-functions/getBlogPosts";
-
-// Import helper functions
 import { verifyPageAccess } from "@/helpers/login-server-functions/verifyPageAccess";
 
 // Import data types
 import { BlogPost } from "@/models/BlogPost";
+
+// Get support data
+import { monthList } from "@/helpers/monthList";
 
 /*
     This page is for viewing the existing blog posts. A post will have a button for editing
@@ -44,14 +45,24 @@ export default async function Blogs({
 
     const allBlogsUI: any = allBlogs.map( ( blog: BlogPost, index: number ) => {
 
+        const blogDate = new Date( blog.postDate );
+
+        let day = blogDate.getDate();
+
+        let monthIndex = blogDate.getMonth();
+
+        let month = monthList[ monthIndex ];
+
+        let year = blogDate.getFullYear();
+
         return (
-            <div key={ index }>
+            <div key={ index } className="card">
 
                 <h3>{ blog.title }</h3>
 
-                <span>{ blog.author }</span>
+                <p>{ blog.author }</p>
 
-                <span>{ blog.postDate }</span>
+                <p>Posted: { month } { day }, { year }</p>
 
                 <Link href={{
                     pathname: "/admin/blogs/edit-blog",
@@ -70,23 +81,29 @@ export default async function Blogs({
 
             <h1>Blogs</h1>
 
-            <Link href={{
-                pathname: "/admin",
-                query: credentials
-            }}>
-                Back to Admin Panel
-            </Link>
+            <div className="flex space-between">
 
-            <Link href={{
-                pathname: "/admin/blogs/create-blog",
-                query: credentials
-            }}>
-                Create Blog
-            </Link>
+                <Link href={{
+                    pathname: "/admin",
+                    query: credentials
+                }}>
+                    Back to Admin Panel
+                </Link>
 
+                <Link className="btn" href={{
+                    pathname: "/admin/blogs/create-blog",
+                    query: credentials
+                }}>
+                    Create Blog
+                </Link>
+
+            </div>
+
+            <div className="gallery">
             {
                 allBlogsUI
             }
+            </div>
 
         </main>
     )

@@ -1,6 +1,8 @@
 .card {
 
-    border: 0.1rem solid black;
+    /* border: 0.1rem solid black; */
+
+    background-color: hsl( 40, 20%, 90% );
 
     border-radius: 0.5rem;
 
@@ -13,7 +15,5 @@
     min-height: 8rem;
 
     max-height: 18rem;
-
-    background-color: white;
 
 }
