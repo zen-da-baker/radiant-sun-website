@@ -1,6 +1,6 @@
 .form {
 
-    background-color: hsl( 40, 25%, 80% );
+    background-color: hsl( 40, 0%, 25% );
 
     border-radius: 0.5rem;
 
@@ -24,15 +24,21 @@
 
     flex-direction: column;
 
+    color: white;
+
 }
 
 input, textarea {
+
+    border: none;
 
     border-radius: 0.5rem;
 
     padding: 0.5rem;
 
     width: 25rem;
+
+    font-family: 'Courier New', Courier, monospace;
 
 }
 

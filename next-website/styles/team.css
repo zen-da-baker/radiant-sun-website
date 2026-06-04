@@ -2,7 +2,11 @@
 
     padding: 1rem;
 
-    background-color: hsl(1, 0%, 85%);
+    margin: 2rem;
+
+    border-radius: 0.5rem;
+
+    background-color: hsl(1, 0%, 25%);
 
 }
 

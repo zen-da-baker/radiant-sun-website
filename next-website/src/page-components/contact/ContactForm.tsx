@@ -90,25 +90,56 @@ export function ContactForm( { formAction }: { formAction: any } ) {
 
             <label>
                 Name
-                <input id="name" type="text" name="name" onChange={ ( event ) => name = event.target.value } />
+                <input 
+                    id="name" 
+                    type="text" 
+                    name="name" 
+                    onChange={ 
+                        ( event ) => name = event.target.value 
+                    }
+                    placeholder="Your name..." 
+                />
             
             </label>
 
             <label>
                 Email
-                <input id="email" type="text" name="email" onChange={ ( event ) => email = event.target.value } />
+                <input 
+                    id="email" 
+                    type="text" 
+                    name="email" 
+                    onChange={ 
+                        ( event ) => email = event.target.value 
+                    } 
+                    placeholder="Your email address..."
+                />
 
             </label>
 
             <label>
                 Subject
-                <input id="subject" type="text" name="subject" onChange={ ( event ) => subject = event.target.value } />
+                <input 
+                    id="subject" 
+                    type="text" 
+                    name="subject" 
+                    onChange={ 
+                        ( event ) => subject = event.target.value 
+                    } 
+                    placeholder="Subject line..."
+                />
 
             </label>
 
             <label>
                 Body
-                <textarea id="body" name="body" onChange={ ( event ) => body = event.target.value } ></textarea>
+                <textarea 
+                    id="body" 
+                    name="body" 
+                    onChange={ 
+                        ( event ) => body = event.target.value 
+                    } 
+                    placeholder="Message body..."
+                ></textarea>
             
             </label>
 

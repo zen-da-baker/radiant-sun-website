@@ -1,13 +1,21 @@
 .school-container {
 
-    border: 0.1rem solid black;
+    /* border: 0.1rem solid black; */
 
     margin: 2rem;
 
     padding: 1rem;
 
-    background-color: hsl(1, 0%, 85%);
+    background-color: hsl(1, 0%, 25%);
 
     border-radius: 0.5rem;
+
+}
+
+.school-container h2 {
+
+    color: white;
+
+    text-align: center;
 
 }

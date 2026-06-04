@@ -6,7 +6,7 @@ export function Schools() {
     return (
         <div className="school-container">
 
-            <h1>Created in association with</h1>
+            <h2>Created in association with</h2>
 
             <div className="flex">
                 

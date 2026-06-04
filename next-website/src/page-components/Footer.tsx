@@ -19,9 +19,9 @@ export function Footer() {
 
                 <Link href="/">Radiant Sun</Link>
 
-                <Link href="/contact">Contact Us</Link>
-
                 <Link href="/team">Our Team</Link>
+
+                <Link href="/contact">Contact Us</Link>
 
                 <Link href="/blog">Blog</Link>
 

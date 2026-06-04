@@ -90,7 +90,9 @@ export default async function ReadBlog({
     return (
         <main>
 
-            <Link href="/blog">Return to Blog</Link>
+            <Link href="/blog">
+                <button>Return to Blog</button>
+            </Link>
 
             <p>Blog Post | { blog.title }</p>
 

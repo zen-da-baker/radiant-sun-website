@@ -53,7 +53,7 @@ export default async function AllBlogs() {
                         pathname: "/blog/post",
                         query: { postId: blog._id.toString() }
                     }}>
-                        View { blog.title }
+                        <button className="btn">View { blog.title }</button>
                     </Link>
 
                 </div>

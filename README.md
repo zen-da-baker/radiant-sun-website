@@ -1,7 +1,7 @@
 ## Purpose
 This is a webpage for hosting the Radiant Sun video game.
 ## Description
-From 2021 to 2024, the team behind Radiant Sun has been working on the game and preparing a playable demo. To show case this demo, the landing page of Radiant Sun was created. The web page makes use of Radiant Sun's ability to run in the browser allowing users to enjoy the game, save their progress to their local machine, and come back to the game all without the need for a download.
+From 2021 to 2024, the team behind Radiant Sun has been working on the game and preparing a playable demo. This website is to showcase the game. To show case this demo, the landing page of Radiant Sun was created. The web page makes use of Radiant Sun's ability to run in the browser allowing users to enjoy the game, save their progress to their local machine, and come back to the game all without the need for a download.
 The repository for this website is meant to be publically viewable.
 ## Languages
 - HTML
