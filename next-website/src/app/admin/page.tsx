@@ -35,25 +35,36 @@ export default async function Admin({
 
             <h1>Welcome to the Admin panel { username }</h1>
 
-            <p>Access the features below.</p>
+            <div className="text-container">
 
-            <Link href={
-                {
-                    pathname: "/admin/messages",
-                    query: credentials
-                }
-            }>
-                View Messages
-            </Link>
+                <p>
+                    Use the buttons below to view messages submitted to the website. 
+                    Or use the other button to review existing blog posts, edit them, or create a new blog post.
+                </p>
 
-            <Link href={
-                {
-                    pathname: "/admin/blogs",
-                    query: credentials
-                }
-            }>
-                View Blogs
-            </Link>
+                <div className="flex space-around">
+
+                    <Link href={
+                        {
+                            pathname: "/admin/messages",
+                            query: credentials
+                        }
+                    }>
+                        <button>View Messages</button>
+                    </Link>
+
+                    <Link href={
+                        {
+                            pathname: "/admin/blogs",
+                            query: credentials
+                        }
+                    }>
+                        <button>View Blogs</button>
+                    </Link>
+
+                </div>
+
+            </div>
 
         </main>
     )

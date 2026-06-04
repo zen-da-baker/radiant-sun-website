@@ -103,10 +103,14 @@ export default async function EditBlog({
                     query: credentials
                 }
             }>
-                Back to Blogs Dashboard
+                <button>Back to Blogs Dashboard</button>
             </Link>
 
-            <EditBlogForm blogString={ blogString } username={ credentials.username } tokenId={ credentials.tokenId } />
+            <EditBlogForm 
+                blogString={ blogString } 
+                username={ credentials.username } 
+                tokenId={ credentials.tokenId } 
+            />
 
         </main>
     )

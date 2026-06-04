@@ -6,6 +6,9 @@ import { useState, useEffect } from "react";
 // Import models
 import { SecurityQuestion } from "@/models/SecurityQuestion";
 
+// Import styling
+import "../../../styles/form.css";
+
 // The component form for the client side
 export function LoginForm( 
     { handleUsernameSubmission, handleAnswerSubmission, loginRedirect } 

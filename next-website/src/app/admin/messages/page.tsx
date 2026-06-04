@@ -74,13 +74,16 @@ export default async function Messages({
                 pathname: "/admin",
                 query: credentials
             }}>
-                Back to Admin Panel
+                <button>Back to Admin Panel</button>
             </Link>
 
-            <h2>Stored Messages</h2>
+            <h2 style={ { textAlign: "center" } }>Stored Messages</h2>
+
+            <div className="gallery">
             {
                 messageComponents
             }
+            </div>
 
         </main>
     )

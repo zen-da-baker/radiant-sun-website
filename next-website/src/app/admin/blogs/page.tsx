@@ -66,9 +66,13 @@ export default async function Blogs({
 
                 <Link href={{
                     pathname: "/admin/blogs/edit-blog",
-                    query: { username: credentials.username, tokenId: credentials.tokenId, postId: blog._id.toString() }
+                    query: { 
+                        username: credentials.username, 
+                        tokenId: credentials.tokenId, 
+                        postId: blog._id.toString() 
+                    }
                 }}>
-                    Edit { blog.title }
+                    <button>Edit { blog.title }</button>
                 </Link>
 
             </div>
@@ -87,14 +91,14 @@ export default async function Blogs({
                     pathname: "/admin",
                     query: credentials
                 }}>
-                    Back to Admin Panel
+                    <button>Back to Admin Panel</button>
                 </Link>
 
-                <Link className="btn" href={{
+                <Link href={{
                     pathname: "/admin/blogs/create-blog",
                     query: credentials
                 }}>
-                    Create Blog
+                    <button>Create Blog</button>
                 </Link>
 
             </div>

@@ -13,6 +13,9 @@ import { FeedbackMessage } from "@/models/FeedbackMessage";
 import { toggleMessageReadStatus } from "@/helpers/message-server-functions/toggleMessageReadStatus";
 import { deleteMessage } from "@/helpers/message-server-functions/deleteMessage";
 
+// Import helpers
+import { monthList } from "@/helpers/monthList";
+
 /*
     This client component displays a message from the server and contains buttons for all of its actions.
 */
@@ -64,6 +67,16 @@ export function MessageView( { messageString } : { messageString: string } ) {
 
     }
 
+    let messageDate = new Date( message.submissionDate );
+
+    let monthIndex = messageDate.getMonth();
+
+    let month = monthList[ monthIndex ];
+
+    let day = messageDate.getDate();
+
+    let year = messageDate.getFullYear();
+
     return (
         <div className="card" style={ 
 
@@ -74,13 +87,13 @@ export function MessageView( { messageString } : { messageString: string } ) {
 
             { messageRead ? <span>Message Read</span> : <span>Unread</span> }
 
-            <p>From: { message.submissionDate }</p>
+            <p>From: { month } { day }, { year } </p>
             
-            <h3>{ message.name }</h3>
+            <h3>Name: { message.name }</h3>
 
-            <p>{ message.email }</p>
+            <p>Email: { message.email }</p>
 
-            <p>{ message.subject }</p>
+            <p>Subject: { message.subject }</p>
 
             <p>{ message.body }</p>
 

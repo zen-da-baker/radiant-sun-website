@@ -28,6 +28,12 @@
 
 }
 
+.form h2 {
+
+    color: white;
+    
+}
+
 input, textarea {
 
     border: none;

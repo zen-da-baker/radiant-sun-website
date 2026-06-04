@@ -73,6 +73,11 @@ export function EditBlogForm( { blogString, username, tokenId } : { blogString: 
 
     }
 
+    const center = { 
+        display: "block", 
+        margin: "auto" 
+    };
+
     return (
         <div className="form">
 
@@ -84,7 +89,7 @@ export function EditBlogForm( { blogString, username, tokenId } : { blogString: 
 
             </div>
 
-            <button onClick={ firstDeleteStep }>Delete Blog Post</button>
+            <button style={ center } onClick={ firstDeleteStep }>Delete Blog Post</button>
 
             <label>
                 Title
@@ -100,7 +105,7 @@ export function EditBlogForm( { blogString, username, tokenId } : { blogString: 
 
             </textarea>
 
-            <button onClick={ submitEdits }>Submit Changes</button>
+            <button style={ center } onClick={ submitEdits }>Submit Changes</button>
 
         </div>
     )

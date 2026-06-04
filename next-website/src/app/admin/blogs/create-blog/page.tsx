@@ -48,8 +48,18 @@ export default async function CreateBlog({
                     query: credentials
                 }
             }>
-                Back to Blogs Dashboard
+                <button>Back to Blogs Dashboard</button>
             </Link>
+
+            <div className="text-container">
+
+                <p>
+                    Note: The blog body text will use markdown formatting to display all styling. 
+                    For a guide to how this works, follow this article on the syntax. 
+                    <a href="https://www.markdownguide.org/" target="_blank" rel="noreferrer">Markdown Syntax</a>
+                </p>
+
+            </div>
 
             <CreateBlogForm />
 

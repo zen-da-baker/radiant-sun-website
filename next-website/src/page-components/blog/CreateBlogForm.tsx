@@ -22,17 +22,28 @@ export function CreateBlogForm() {
 
             <label>
                 Title
-                <input name="title" type="text" />
+                <input 
+                    name="title"
+                    type="text" 
+                    placeholder="Title..."
+                />
             </label>
 
             <label>
                 Author
-                <input name="author" type="text" />
+                <input 
+                    name="author" 
+                    type="text" 
+                    placeholder="Author..."
+                />
             </label>
 
             <label>
                 Content Text
-                <textarea name="text-content"></textarea>
+                <textarea 
+                    name="text-content"
+                    placeholder="Your amazing throughts here..."
+                ></textarea>
             </label>
 
             <label>
