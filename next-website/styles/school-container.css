@@ -19,3 +19,22 @@
     text-align: center;
 
 }
+
+@media screen and ( max-width: 600px ) {
+
+    .school-container div .card {
+
+        padding: 0.5rem;
+
+    }
+
+}
+
+@media screen and ( max-width: 530px ) {
+
+    .card {
+
+        height: 15rem;
+
+    }
+}

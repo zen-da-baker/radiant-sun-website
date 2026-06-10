@@ -12,7 +12,7 @@ export function Schools() {
                 
                 <div className="card flex" style={{ bottom: "0px", right: "10px" }}>
                 
-                    <div className="flex" style={{ gap: "1rem",  alignItems: "center", width: "100%" }}>
+                    <div className="flex school-title" style={{ gap: "1rem",  alignItems: "center", width: "100%" }}>
 
                         <img src="images/Gamespawn Logo.svg" style={{ width: "80px" }} className="d-inline" />
                     
@@ -36,7 +36,7 @@ export function Schools() {
                 
                 <div className="card flex">
                     
-                    <div className="flex" style={{ alignItems: "center", height: "5rem", gap: "1rem" }}>
+                    <div className="flex school-title" style={{ alignItems: "center", height: "5rem", gap: "1rem" }}>
 
                         <img src="images/UC_Riverside_seal.svg" style={{ width: "80px" }} className="d-inline" />
                     
@@ -48,7 +48,7 @@ export function Schools() {
                 
                 <div className="card flex">
 
-                    <div className="flex" style={{ alignItems: "center", height: "5rem", gap: "1rem" }}>
+                    <div className="flex school-title" style={{ alignItems: "center", height: "5rem", gap: "1rem" }}>
                     
                         <img src="/images/California_State_University,_Fullerton_seal.svg" style={{ width: "80px" }} className="d-inline" />
                     

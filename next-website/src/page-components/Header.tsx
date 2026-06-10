@@ -37,7 +37,7 @@ export function Header() {
 
             </div>
 
-            <div className="flex">
+            <div id="header-links" className="flex">
 
                 <Link href="/team">Team</Link>
 
