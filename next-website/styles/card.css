@@ -12,6 +12,10 @@
 
     width: 30rem;
 
+    max-width: 90vw;
+
     min-height: 8rem;
+
+    max-height: 45rem;
 
 }

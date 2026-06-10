@@ -4,7 +4,7 @@
 
     border-radius: 0.5rem;
 
-    width: 40rem;
+    width: 75vw;
 
     margin: 1rem auto;
 
@@ -26,6 +26,10 @@
 
     color: white;
 
+    width: 90%;
+
+    margin: auto;
+
 }
 
 .form h2 {
@@ -42,7 +46,9 @@ input, textarea {
 
     padding: 0.5rem;
 
-    width: 25rem;
+    margin: auto;
+
+    width: 90%;
 
     font-family: 'Courier New', Courier, monospace;
 
