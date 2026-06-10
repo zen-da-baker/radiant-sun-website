@@ -17,3 +17,13 @@
     margin: 0.25rem 0;
 
 }
+
+@media screen and ( max-width: 500px ) {
+
+    .team-container div .card {
+
+        max-height: 45rem;
+
+    }
+
+}
