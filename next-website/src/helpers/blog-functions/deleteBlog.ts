@@ -27,6 +27,7 @@ export async function deleteBlog( username: string, tokenId: string, postId: str
 
     blogsCollection.deleteOne({ _id: new ObjectId( postId ) });
 
+    // When the blog is deleted, the user is redirected back to the dashboard
     redirect( "/admin/blogs?username=" + username + "&tokenId=" + tokenId );
 
 }

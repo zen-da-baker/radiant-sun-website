@@ -21,10 +21,12 @@ export default async function Blogs({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
 
+    // The credentials of the query parameter is verified
     const credentials = await searchParams;
 
     const verified = await verifyPageAccess( credentials.username, credentials.tokenId );
 
+    // If the verification failed, the UI is displayed as such
     if ( !verified || typeof credentials.username !== "string" ) {
 
         return (
@@ -41,10 +43,13 @@ export default async function Blogs({
 
     }
 
+    // All of the blog posts are retreived from the database
     const allBlogs: Array<any> = await getBlogPosts();
 
+    // Each of the blog posts is displayed as a card component
     const allBlogsUI: any = allBlogs.map( ( blog: BlogPost, index: number ) => {
 
+        // Various date fields are extracted from the date object that comes from the string
         const blogDate = new Date( blog.postDate );
 
         let day = blogDate.getDate();

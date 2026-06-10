@@ -7,6 +7,7 @@ export function escapeStrings( inputString: string ): string {
 
     let resultString = inputString;
 
+    // Targetted characters to check for
     const riskyCharacters = [
         "[",
         "]",
@@ -27,6 +28,7 @@ export function escapeStrings( inputString: string ): string {
 
     riskyCharacters.forEach( ( char: string ) => {
 
+        // Targetted characters removed outright
         resultString = resultString.replaceAll( char, "" );
 
     })

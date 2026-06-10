@@ -18,6 +18,7 @@ export default function ContactPage() {
         // The server function needs to be explicitly described as being on the server side
         "use server"
 
+        // Characters escaped
         name = escapeStrings( name );
 
         email = escapeStrings( email );

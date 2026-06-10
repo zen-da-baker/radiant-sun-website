@@ -18,6 +18,7 @@ export default async function Admin({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
 
+    // User verification takes place
     const credentials = await searchParams;
 
     const verified = await verifyPageAccess( credentials.username, credentials.tokenId );

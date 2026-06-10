@@ -31,6 +31,7 @@ export async function saveBlogEdits( username: any, tokenId: any, postId: string
 
     const blogCollection = database.collection("radiant-sun-blogs");
 
+    // Finding the blog post by searching with the post ID string converted to a MongoDB ID object
     const blog = await blogCollection.findOne({ _id: new ObjectId( postId ) });
 
     if ( !blog ) {

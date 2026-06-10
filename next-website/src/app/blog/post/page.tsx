@@ -1,14 +1,5 @@
-// Import Node modules
-import fs from "node:fs/promises";
-
 // Import Next components
 import Link from "next/link";
-
-// Import MongoDB database
-import { database } from "@/database/database";
-
-// Import MongoDB helpers
-import { ObjectId } from "mongodb";
 
 // Import Markdoc package
 import Markdoc from '@markdoc/markdoc';
@@ -16,9 +7,6 @@ import Markdoc from '@markdoc/markdoc';
 // Import helper functions
 import { escapeStrings } from "@/helpers/escapeStrings";
 import { getBlog } from "@/helpers/blog-functions/getBlog";
-
-// Import data models
-import { BlogPost } from "@/models/BlogPost";
 
 /*
     This page is for viewing a blog post which publicly available. The query parameters
@@ -30,6 +18,7 @@ export default async function ReadBlog({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
 
+    // The query parameters are extracted from the query parameters
     const params = await searchParams;
 
     let postId = params.postId;
@@ -80,7 +69,7 @@ export default async function ReadBlog({
 
     }
 
-    // The blog file is parsed with the Stripe provided Markdoc package
+    // The blog post is parsed with the Stripe provided Markdoc package
     const ast = Markdoc.parse( blog.contents );
 
     const content = Markdoc.transform( ast );

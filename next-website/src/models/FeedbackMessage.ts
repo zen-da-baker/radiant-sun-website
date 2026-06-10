@@ -1,3 +1,6 @@
+/*
+    Expected message fields from the database.
+*/
 export class FeedbackMessage {
 
     _id: any;

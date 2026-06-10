@@ -48,6 +48,7 @@ export default async function Messages({
 
     let messageComponents: any = <p>No mesages to display...</p>
 
+    // If there are messages, they are displayed as individual components
     if ( allMessages !== null ) {
 
         // The messages would have already had their characters escaped on submission so they do not need to do so here

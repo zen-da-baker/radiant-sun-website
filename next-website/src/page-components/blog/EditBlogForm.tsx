@@ -20,11 +20,13 @@ export function EditBlogForm( { blogString, username, tokenId } : { blogString: 
 
     const blog: BlogPost = JSON.parse( blogString )
 
+    // Local state
     const [ title, setTitle ] = useState<string>( blog.title );
     const [ author, setAuthor ] = useState<string>( blog.author );
     const [ blogContents, setBlogContents ] = useState<string>( blog.contents );
     const [ showDeleteModal, setShowDeleteModal ] = useState<boolean>( false );
 
+    // Component level handler functions
     function handleTitleEdit( event: any ) {
 
         setTitle( event.target.value );

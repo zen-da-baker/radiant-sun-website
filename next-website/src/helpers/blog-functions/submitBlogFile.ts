@@ -76,14 +76,20 @@ export async function submitBlogFile(
 
     }
 
+    /*
+        The user has the choice of adding a file or a text input for the blog post.
+    */
+
     let blogText: any;
 
+    // If the file does not exist, the text input is prioritized
     if ( !file && content ) {
 
         blogText = content;
 
     } 
 
+    // If the file exists and the text input does not, the file type is checked and then prioritized
     if ( file && !content ) {
 
         // If the type of file is not markdown, the function is terminated before the save operation

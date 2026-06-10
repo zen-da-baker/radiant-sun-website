@@ -7,6 +7,9 @@ import { useState } from "react";
 
 import "../../styles/carousel.css";
 
+/*
+    The landing page carousel with image rotation.
+*/
 export function Carousel() {
 
     interface Image {

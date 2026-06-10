@@ -1,9 +1,6 @@
 // Import MongoDB database
 import { database } from "@/database/database";
 
-// Import data models
-import { FeedbackMessage } from "@/models/FeedbackMessage";
-
 /*
     This helper function expects the user to already be authenticated and
     access the database to pull any messages for the website. The function
@@ -17,6 +14,7 @@ export async function getMessages(): Promise<Array<any> | null> {
 
         const findCursor = messagesCollection.find( { submittedFrom: "Radiant Sun" } );
 
+        // All messages from the database cursor is converted to an array and then returned
         const allMessages = await findCursor.toArray();
 
         return allMessages;

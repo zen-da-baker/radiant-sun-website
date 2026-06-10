@@ -3,9 +3,6 @@
 // Import React packages
 import { useState } from "react";
 
-// Import components
-import { StatusBanner } from "../StatusBanner";
-
 // Import styles
 import "../../../styles/form.css";
 

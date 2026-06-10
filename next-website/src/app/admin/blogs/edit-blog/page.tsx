@@ -22,10 +22,12 @@ export default async function EditBlog({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
 
+    // Credentials from the quert parameters is verified
     const credentials = await searchParams;
 
     const verified = await verifyPageAccess( credentials.username, credentials.tokenId );
 
+    // Unverified page
     if ( !verified ) {
 
         return (
@@ -42,9 +44,10 @@ export default async function EditBlog({
 
     }
 
-    // Get the specific blog identified
+    // Get the specific blog identified from the query parameters 
     let postId = credentials.postId;
 
+    // If the post is not found, update the UI as such
     if ( typeof postId !== "string" || typeof credentials.tokenId !== "string" || typeof credentials.username !== "string" ) {
 
         return (
@@ -65,10 +68,12 @@ export default async function EditBlog({
         )
     }
 
+    // The blog post is searched for from the database
     postId = escapeStrings( postId );
 
     const blog: BlogPost | null = await getBlog( postId );
 
+    // If the blog post was not found, the UI is updated as such
     if ( !blog ) {
 
         return (
@@ -89,6 +94,7 @@ export default async function EditBlog({
         )
     }
 
+    // The blog metadata is converted to a string and passed to the client component for editing the blog
     const blogString = JSON.stringify( blog );
 
     return (
