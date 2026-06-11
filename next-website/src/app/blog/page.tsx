@@ -17,7 +17,7 @@ export default async function AllBlogs() {
 
     let blogsUI: any = <p>No blogs...</p>
 
-    if ( blogs ){
+    if ( blogs ) {
 
         blogsUI = blogs.map( ( blog: any, index: number ) => {
 
