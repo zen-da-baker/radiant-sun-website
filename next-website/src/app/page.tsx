@@ -6,6 +6,8 @@ import { Schools } from "@/page-components/Schools";
 // All of the home page elements are components which are included below
 export default function LandingPage() {
 
+    console.log("Hello World!");
+
   return (
     <main>
 
