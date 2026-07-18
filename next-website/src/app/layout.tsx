@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 // Layout components for all pages
 import { Header } from "@/page-components/Header";
 import { Footer } from "@/page-components/Footer";
+import { Analytics } from "@vercel/analytics/next"
 
 // Import styling
 import "../../styles/main.css";
@@ -22,6 +23,8 @@ export default function RootLayout( { children } : Readonly < { children: React.
   
   return (
     <html lang="en">
+
+        <Analytics />
 
       <body>
 
