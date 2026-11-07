@@ -1,0 +1,29 @@
+.team-container {
+
+    padding: 1rem;
+
+    margin: 2rem;
+
+    border-radius: 0.5rem;
+
+    background-color: hsl(1, 0%, 25%);
+
+}
+
+.team-container * .card * {
+
+    line-height: 1.25rem;
+
+    margin: 0.25rem 0;
+
+}
+
+@media screen and ( max-width: 500px ) {
+
+    .team-container div .card {
+
+        max-height: 45rem;
+
+    }
+
+}

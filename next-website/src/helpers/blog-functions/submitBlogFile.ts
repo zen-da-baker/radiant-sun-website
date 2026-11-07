@@ -1,0 +1,153 @@
+"use server"
+
+// Import MongoDB database
+import { database } from "@/database/database";
+
+// Import Node system
+import fs from "node:fs"
+import { readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+
+// Import helper functions
+import { verifyPageAccess } from "../login-server-functions/verifyPageAccess";
+import { escapeStrings } from "../escapeStrings";
+
+/*
+    This server side function verifies the user and then adds the blog post 
+    meta data, a date of the post, and the contents of the blog post which is 
+    a markdown file.
+*/
+export async function submitBlogFile( 
+    /*
+    username: string, 
+    tokenId: string, 
+    title: string, 
+    author: string, 
+    file: File 
+    */
+   formData: FormData
+) {
+
+    let username = formData.get("username");
+    
+    let tokenId = formData.get("tokenId");
+    
+    let title = formData.get("title");
+
+    let content = formData.get("text-content");
+    
+    let author = formData.get("author");
+
+    if ( !username || !tokenId || !title || !author ) {
+
+        return;
+
+    }
+
+    username = escapeStrings( username.toString() );
+
+    tokenId = escapeStrings( tokenId.toString() );
+
+    title = escapeStrings( title.toString() );
+
+    author = escapeStrings( author.toString() );
+
+    // The user is validated
+    const verified = verifyPageAccess( username, tokenId );
+
+    if ( !verified ) {
+
+        return;
+
+    }
+
+    // Meta data established
+    const today = new Date();
+
+    let file: any = formData.get("file");
+
+    if ( !content && !file ) {
+
+        if ( !file ) {
+
+            return;
+
+        }
+
+    }
+
+    /*
+        The user has the choice of adding a file or a text input for the blog post.
+    */
+
+    let blogText: any;
+
+    // If the file does not exist, the text input is prioritized
+    if ( !file && content ) {
+
+        blogText = content;
+
+    } 
+
+    // If the file exists and the text input does not, the file type is checked and then prioritized
+    if ( file && !content ) {
+
+        // If the type of file is not markdown, the function is terminated before the save operation
+        if ( file.type !== "text/markdown" ) {
+
+            return;
+
+        }
+
+        // Contents of the blog post markdown file are extracted
+        blogText = await file.text();
+    
+    }
+
+    // If the file and textarea both have content, prioritize the file if it is markdown, otherwise prioritize the textarea
+    if ( file && content ) {
+
+        // If the type of file is not markdown, the function is terminated before the save operation
+        if ( file.type === "text/markdown" ) {
+
+            // Contents of the blog post markdown file are extracted
+            blogText = await file.text();
+
+        } else {
+
+            blogText = content;
+
+        }
+
+    }
+
+    // Remove all script and style tags
+    blogText = blogText.replaceAll( "<script>", "" );
+
+    blogText = blogText.replaceAll( "</script>", "" );
+
+    blogText = blogText.replaceAll( "<style>", "" );
+
+    blogText = blogText.replaceAll( "</style>", "" );
+
+    // The blog post to be stored in the database
+    const blogPostMetaData = {
+        title, author, 
+        postDate: today.toString(), 
+        contents: blogText
+    }
+
+    // The meta data is stored in the database
+    const blogCollection = database.collection("radiant-sun-blogs");
+
+    try {
+
+        blogCollection.insertOne( blogPostMetaData );
+
+    } catch( error: any ) {
+
+        console.log( error );
+        
+    }
+
+}

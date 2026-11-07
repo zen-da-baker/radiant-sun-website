@@ -1,0 +1,58 @@
+"use server"
+
+// Import MongoDB database
+import { database } from "@/database/database";
+
+// Import other helper functions
+import { escapeStrings } from "../escapeStrings";
+
+// Import data models
+import { SecurityQuestion } from "@/models/SecurityQuestion";
+
+/*
+    This is a server function that expects a username string from the client. The function searches
+    for the user from the database. If the user is found, a random question is chosen and sent back to the
+    user. 
+*/
+export async function handleUsernameSubmission( username: string ): Promise<SecurityQuestion | void> {
+
+    username = escapeStrings( username );
+
+    if ( username === "" ) {
+
+        return;
+
+    }
+
+    try {
+
+        const questionsCollection = database.collection("radiant-sun-questions");
+
+        const profile = await questionsCollection.findOne( { user: username } );
+
+        if ( profile === null ) {
+
+            return;
+
+        }
+
+        // Picking a random question
+        const questions = profile.questions;
+
+        const listSize = questions.length;
+
+        const randomQuestionIndex = Math.floor( Math.random() * listSize );
+
+        const randomQuestion: SecurityQuestion = questions[ randomQuestionIndex ];
+
+        return randomQuestion;
+
+    } catch( error: any ) {
+
+        console.log( error );
+
+    }
+
+    return;
+
+}

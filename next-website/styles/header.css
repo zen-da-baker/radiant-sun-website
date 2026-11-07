@@ -1,0 +1,23 @@
+.page-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 1rem;
+
+    background-color: hsl(1, 0%, 15%);
+
+    color: white;
+
+}
+
+@media screen and ( max-width: 520px ) {
+
+    #header-links {
+
+        display: none;
+
+    }
+    
+}

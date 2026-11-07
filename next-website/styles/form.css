@@ -1,0 +1,61 @@
+.form {
+
+    background-color: hsl( 40, 0%, 25% );
+
+    border-radius: 0.5rem;
+
+    width: 75vw;
+
+    margin: 1rem auto;
+
+    padding: 1rem;
+
+}
+
+.form * {
+
+    margin: 0.5rem;
+
+}
+
+.form label {
+
+    display: flex;
+
+    flex-direction: column;
+
+    color: white;
+
+    width: 90%;
+
+    margin: auto;
+
+}
+
+.form h2 {
+
+    color: white;
+    
+}
+
+input, textarea {
+
+    border: none;
+
+    border-radius: 0.5rem;
+
+    padding: 0.5rem;
+
+    margin: auto;
+
+    width: 90%;
+
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+textarea {
+
+    height: 12rem;
+
+}

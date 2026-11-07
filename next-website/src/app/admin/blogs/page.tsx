@@ -1,0 +1,119 @@
+// Import Next components
+import Link from "next/link";
+
+// Import helper functions
+import { getBlogPosts } from "@/helpers/blog-functions/getBlogPosts";
+import { verifyPageAccess } from "@/helpers/login-server-functions/verifyPageAccess";
+
+// Import data types
+import { BlogPost } from "@/models/BlogPost";
+
+// Get support data
+import { monthList } from "@/helpers/monthList";
+
+/*
+    This page is for viewing the existing blog posts. A post will have a button for editing
+    and deleting a post. A different higher level button allows for the creation of a blog post.
+*/
+export default async function Blogs({
+  searchParams,
+}: {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}) {
+
+    // The credentials of the query parameter is verified
+    const credentials = await searchParams;
+
+    const verified = await verifyPageAccess( credentials.username, credentials.tokenId );
+
+    // If the verification failed, the UI is displayed as such
+    if ( !verified || typeof credentials.username !== "string" ) {
+
+        return (
+            <main>
+
+                <h1>Not Authorized!</h1>
+
+                <p>You are not authorized to access this page. Please login.</p>
+
+                <Link href="/login">Login</Link>
+
+            </main>
+        )
+
+    }
+
+    // All of the blog posts are retreived from the database
+    const allBlogs: Array<any> = await getBlogPosts();
+
+    // Each of the blog posts is displayed as a card component
+    const allBlogsUI: any = allBlogs.map( ( blog: BlogPost, index: number ) => {
+
+        // Various date fields are extracted from the date object that comes from the string
+        const blogDate = new Date( blog.postDate );
+
+        let day = blogDate.getDate();
+
+        let monthIndex = blogDate.getMonth();
+
+        let month = monthList[ monthIndex ];
+
+        let year = blogDate.getFullYear();
+
+        return (
+            <div key={ index } className="card">
+
+                <h3>{ blog.title }</h3>
+
+                <p>{ blog.author }</p>
+
+                <p>Posted: { month } { day }, { year }</p>
+
+                <Link href={{
+                    pathname: "/admin/blogs/edit-blog",
+                    query: { 
+                        username: credentials.username, 
+                        tokenId: credentials.tokenId, 
+                        postId: blog._id.toString() 
+                    }
+                }}>
+                    <button>Edit { blog.title }</button>
+                </Link>
+
+            </div>
+        )
+
+    } )
+
+    return (
+        <main>
+
+            <h1>Blogs</h1>
+
+            <div className="flex space-between">
+
+                <Link href={{
+                    pathname: "/admin",
+                    query: credentials
+                }}>
+                    <button>Back to Admin Panel</button>
+                </Link>
+
+                <Link href={{
+                    pathname: "/admin/blogs/create-blog",
+                    query: credentials
+                }}>
+                    <button>Create Blog</button>
+                </Link>
+
+            </div>
+
+            <div className="gallery">
+            {
+                allBlogsUI
+            }
+            </div>
+
+        </main>
+    )
+}

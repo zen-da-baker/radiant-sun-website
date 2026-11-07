@@ -1,7 +1,0 @@
-/frontend/node_modules
-/demo
-/demomobile
-.vscode
-/next-website/.next
-/next-website/node_modules
-.env
